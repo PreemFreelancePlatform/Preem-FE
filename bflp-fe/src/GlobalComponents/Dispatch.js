@@ -1,28 +1,54 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { axiosWithAuth } from '../Utils/axiosWIthAuth';
+import { Redirect } from 'react-router-dom';
 
-export const Dispatch = () => {
-	let [user, setUser] = useState();
-	const [loadingcompleted, setLoadingCompleted] = useState(false);
+class Dispatch extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			role: '',
+			completed: false,
+			setup: '',
+			id: '',
+		};
+	}
 
-	const getInfo = async () => {
-		try {
-			const result = await axiosWithAuth().get('http://localhost:2019/getmyinfo');
-			setUser(result.data);
-		} catch (e) {
-			console.log(e);
+	componentDidMount() {
+		axiosWithAuth()
+			.get('http://localhost:2019/getmyinfo')
+			.then((res) => {
+				this.setState(() => ({
+					role: res.data.locked_role,
+					setup: res.data.setup,
+					id: res.data.id,
+					completed: true,
+				}));
+			})
+			.catch((err) => console.log(err.res));
+	}
+
+	// ok so this is what were gonna do.
+	// put the id of the person were getting and go directly to them example customer/501
+	// if we havnt completed the setup then go to customer/501/setup
+	render() {
+		if (this.state.completed) {
+			switch (this.state.role) {
+				case 'customer':
+					return <Redirect to={`/customer/${this.state.id}`} />;
+
+				case 'freelancer':
+					return <Redirect to={`/freelancer/${this.state.id}`} />;
+
+				case 'admin':
+					return <Redirect to={`/admin/${this.state.id}`} />;
+
+				default:
+					return <Redirect to="/login" />;
+			}
+		} else {
+			return null;
 		}
-		setLoadingCompleted(true);
-	};
-	console.log(user);
+	}
+}
 
-	useEffect(() => {
-		getInfo();
-    }, []);
-    
-
-	return 
-    <div>
-
-    </div>;
-};
+export default Dispatch;

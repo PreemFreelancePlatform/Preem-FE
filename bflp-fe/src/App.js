@@ -1,20 +1,26 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import { Login } from './GlobalComponents/Login';
-import ProtectedRoute from './Utils/PrivateRouteCustomer';
+import PrivateRouteAny from './Utils/PrivateRouteAny';
+import PrivateRouteFreelancer from './Utils/PrivateRouteFreelancer';
+import PrivateRouteCustomer from './Utils/PrivateRouteCustomer';
 
 import './App.css';
-import { CustomerTest } from './CustomerComponents/Customer';
-import { FreelancerTest } from './FreelancerComponents/FreelancerTest';
-import { Dispatch } from './GlobalComponents/Dispatch';
+import Dispatch from './GlobalComponents/Dispatch';
+import { Login } from './GlobalComponents/Login';
+import { CustomerDash } from './CustomerComponents/CustomerDash';
+import { FreelancerDash } from './FreelancerComponents/FreelancerDash';
 function App() {
 	return (
 		<Router>
 			<Switch>
 				<Route path="/login" component={Login} />
-				<ProtectedRoute path="/customer" component={CustomerTest} />
-				<ProtectedRoute path="/dispatch" component={Dispatch} />
+				{/* <PrivateRouteAny path="/dispatch" component={Dispatch} /> */}
+				{/* <PrivateRouteCustomer path="/customer/:id" component={CustomerDash} />
+				<PrivateRouteFreelancer path="/freelancer/:id" component={FreelancerDash} /> */}
+				<Route path="/dispatch" component={Dispatch} /> */
+				<Route path="/freelancer/:id" component={FreelancerDash} /> */
+				<Route path="/customer/:id" component={CustomerDash} />
 			</Switch>
 		</Router>
 	);

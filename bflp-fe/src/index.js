@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { RegReducer } from './Reducers/RegReducer';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { BrowserRouter } from 'react-router-dom';
+import { Reducer } from './ReduxStuff/Reducer';
 
-const store = createStore(RegReducer, applyMiddleware(thunk));
+const store = createStore(Reducer, applyMiddleware(thunk));
 
 ReactDOM.render(
 	<BrowserRouter>
