@@ -18,8 +18,8 @@ function App() {
 				{/* <PrivateRouteAny path="/dispatch" component={Dispatch} /> */}
 				{/* <PrivateRouteCustomer path="/customer/:id" component={CustomerDash} />
 				<PrivateRouteFreelancer path="/freelancer/:id" component={FreelancerDash} /> */}
-				<Route path="/dispatch" component={Dispatch} /> */
-				<Route path="/freelancer/:id" component={FreelancerDash} /> */
+				<Route path="/dispatch" component={Dispatch} />
+				<Route path="/freelancer/:id" component={FreelancerDash} /> 
 				<Route path="/customer/:id" component={CustomerDash} />
 			</Switch>
 		</Router>

@@ -1,51 +1,73 @@
 .tabdiv {
-	border: 1px solid red;
-	height: 100vh;
-	/* dashboard container */
+  border: 1px solid red;
+  height: 100vh;
+  background-color: lightblue;
+  /* dashboard container */
 }
+
+.topbar {
+	background-color: white;
+
+  height: 5vh;
+  width: 100%;
+}
+
 .nav {
-	border: 1px solid blue;
-	width: 25%;
-	height: 100vh;
-	position: relative;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 60%;
+  background-color: white;
+  width: 6%;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 60%;
 
-	/* left side container */
+
+  /* left side container */
 }
 
-.profile {
-	border: 1px solid green;
-	height: 25vh;
-	/* pic */
-}
+/* .profile {
+  border: 1px solid gray;
+  background: lightblue;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  /* pic
+} */ 
 
 .tablist {
-	margin-right: 40px;
-	border: 1px solid white;
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-	width: 100%;
-	height: 75vh;
-	display: flex;
-	flex-direction: column;
-
-	/* div around the tabs */
+  margin-right: 40px;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  /* div around the tabs */
 }
 
 .active {
-	/* border-top: 1px solid red; */
-
-	border: 1px solid gray;
-	height: 100px;
+  border-right: 1px solid red;
+  
 }
 
 .nonactive {
-	border: 1px solid gray;
-	height: 100px;
+  
+}
+
+.grid {
+  display: flex;
 }
 
 /* -------------- FreelancerDash ----------- */
+
+.icon {
+  width: 30px;
+  margin-top: 25%;
+}
+
+.componentdiv{
+	display: none;
+}

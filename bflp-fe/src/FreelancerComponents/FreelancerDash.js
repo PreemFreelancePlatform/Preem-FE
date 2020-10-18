@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import JobBoard from './JobBoard';
+import React, { useState } from "react";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import JobBoard from "./JobBoard";
+import logo1 from "../iconsnstuff/baseline_tonality_black_18dp-1.png";
 
 /* 
 lets figure out all the stuff your going to bae able to do here
@@ -17,57 +18,67 @@ who can view me?
     other freelancers
     customers
     admin
-
+ 
 who can make changes on my behalf?
     me
     admin
 */
 
 export const FreelancerDash = (props) => {
-	const [tabIndex, setTabIndex] = useState(0);
-	const [subtabIndex, setSubTabIndex] = useState(0);
+  const [tabIndex, setTabIndex] = useState(0);
+  const [subtabIndex, setSubTabIndex] = useState(0);
 
-	return (
-		<div className="tabdiv">
-			<Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-				<div className="nav">
-					<div className="profile">
-						<h1>wherepicture will be</h1>
-					</div>
+  return (
+    <div className="tabdiv">
+      <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
+        {/* <div className="topbar">STUFF</div> */}
 
-					<div>
-						<TabList className="tablist">
-							<Tab className={tabIndex === 0 ? 'active' : 'nonactive'}>workspace</Tab>
-							<Tab className={tabIndex === 1 ? 'active' : 'nonactive'}>Analytics</Tab>
-							<Tab className={tabIndex === 2 ? 'active' : 'nonactive'}>messages</Tab>
-							<Tab className={tabIndex === 3 ? 'active' : 'nonactive'}>job board</Tab>
-							<Tab className={tabIndex === 4 ? 'active' : 'nonactive'}>account settings </Tab>
-						</TabList>
-					</div>
-				</div>
+        <div className="grid">
+          <div className="nav">
+            <TabList className="tablist">
+              <Tab className={tabIndex === 0 ? "active" : "nonactive"}>
+                <img className="icon" src={logo1} />
+              </Tab>
+              <Tab className={tabIndex === 1 ? "active" : "nonactive"}>
+                <img className="icon" src={logo1} />
+              </Tab>
+              <Tab className={tabIndex === 2 ? "active" : "nonactive"}>
+                <img className="icon" src={logo1} />
+              </Tab>
+              <Tab className={tabIndex === 3 ? "active" : "nonactive"}>
+                <img className="icon" src={logo1} />
+              </Tab>
+              <Tab className={tabIndex === 4 ? "active" : "nonactive"}>
+                <img className="icon" src={logo1} />
+              </Tab>
+            </TabList>
+          </div>
 
-				<div>
-					<TabPanel>
-						<h1>analytics</h1>
-					</TabPanel>
+          <div className="topbar">aksjkasgjas</div>
 
-					<TabPanel>
-						<h1>analytics</h1>
-					</TabPanel>
+          <div className="componentdiv">
+            <TabPanel>
+              <h1>analytics</h1>
+            </TabPanel>
 
-					<TabPanel>
-						<h1>messages</h1>
-					</TabPanel>
+            <TabPanel>
+              <h1>analytics</h1>
+            </TabPanel>
 
-					<TabPanel>
-						<JobBoard />
-					</TabPanel>
+            <TabPanel>
+              <h1>messages</h1>
+            </TabPanel>
 
-					<TabPanel>
-						<h1>account settings</h1>
-					</TabPanel>
-				</div>
-			</Tabs>
-		</div>
-	);
+            <TabPanel>
+              <JobBoard />
+            </TabPanel>
+
+            <TabPanel>
+              <h1>account settings</h1>
+            </TabPanel>
+          </div>
+        </div>
+      </Tabs>
+    </div>
+  );
 };
