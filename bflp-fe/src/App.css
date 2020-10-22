@@ -1,73 +1,120 @@
 .tabdiv {
-  border: 1px solid red;
-  height: 100vh;
-  background-color: lightblue;
-  /* dashboard container */
-}
+	background-color: #222327;
 
-.topbar {
-	background-color: white;
-
-  height: 5vh;
-  width: 100%;
-}
-
-.nav {
-  background-color: white;
-  width: 6%;
-  height: 100vh;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 60%;
-
-
-  /* left side container */
-}
-
-/* .profile {
-  border: 1px solid gray;
-  background: lightblue;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  /* pic
-} */ 
-
-.tablist {
-  margin-right: 40px;
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-evenly;
-  /* div around the tabs */
-}
-
-.active {
-  border-right: 1px solid red;
-  
-}
-
-.nonactive {
-  
+	/* dashboard container */
 }
 
 .grid {
-  display: flex;
+	display: flex;
+	height: 100vh;
+	position: relative;
 }
 
-/* -------------- FreelancerDash ----------- */
+.nav {
+	margin: 0;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	background: #303238;
+	min-width: 3.5%;
+	height: 100%;
+	border-radius: 5px;
+
+	/* left side container */
+}
+
+.tablist {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	width: 100%;
+	height: 50%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: space-around;
+	/* div around the tabs */
+}
+
+.active {
+}
+
+.nonactive {
+}
+
+.main {
+	display: flex;
+	flex-direction: column;
+	width: 96%;
+	height: 100%;
+	position: relative;
+}
+
+.topbar {
+	background: #303238;
+	width: 100%;
+	height: 4%;
+	text-align: center;
+}
+
+.profile {
+	border-bottom: 1px solid #6d6e77;
+	display: flex;
+	justify-content: center;
+	min-width: 100%;
+	min-height: 10%;
+}
+
+.componentdiv {
+	color: #c9c9cb;
+}
 
 .icon {
-  width: 30px;
-  margin-top: 25%;
+	width: 30px;
 }
 
-.componentdiv{
-	display: none;
-}
+/* 
+color: #525f7f;
+background-color: #1e1e2f
+--blue: #5e72e4;
+    --indigo: #5603ad;
+    --purple: #8965e0;
+    --pink: #f3a4b5;
+    --red: #f5365c;
+    --orange: #fb6340;
+    --yellow: #ffd600;
+    --green: #2dce89;
+    --teal: #11cdef;
+    --cyan: #2bffc6;
+    --white: #ffffff;
+    --gray: #6c757d;
+    --gray-dark: #32325d;
+    --light: #ced4da;
+    --lighter: #e9ecef;
+    --primary: #e14eca;
+    --secondary: #f4f5f7;
+    --success: #00f2c3;
+    --info: #1d8cf8;
+    --warning: #ff8d72;
+    --danger: #fd5d93;
+    --light: #adb5bd;
+    --dark: #212529;
+    --default: #344675;
+    --white: #ffffff;
+    --neutral: #ffffff;
+    --darker: black;
+  */
+
+/*  
+  home icon: 
+  job board icon: dashboard
+  jobs icon: assignment
+  profile icon: account box
+    */
+
+/*  
+things i know i wont change
+notification icon: bell
+settings icon: settings
+
+   */
