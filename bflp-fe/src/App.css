@@ -73,6 +73,14 @@
 	width: 30px;
 }
 
+.show{
+
+}
+
+.hide{
+	display: none;
+}
+
 /* 
 color: #525f7f;
 background-color: #1e1e2f

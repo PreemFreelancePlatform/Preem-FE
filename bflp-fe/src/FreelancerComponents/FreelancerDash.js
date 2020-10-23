@@ -35,21 +35,24 @@ export const FreelancerDash = (props) => {
 
 	const [name, setName] = useState(null);
 	const [selectedFile, setSelectedFile] = useState(null);
+	const [preview, setPreview] = useState(null);
+
 	const [image, setimage] = useState(null);
 
 	const fileSelectedHandler = (event) => {
-		setSelectedFile(event.target.files[0]);
+
+		setSelectedFile(event.target.files[0]);		
 	};
 
-	const fileUploadHandler = () => {
-		const fd = new FormData();
-		fd.append('imageFile', selectedFile);
-		axiosWithAuth()
-			.post(`http://localhost:2019/freelancer/4/upload`, fd)
-			.then((res) => {
-				console.log(res.data);
-			});
-	};
+	// const fileUploadHandler = () => {
+	// 	const fd = new FormData();
+	// 	fd.append('imageFile', selectedFile);
+	// 	axiosWithAuth()
+	// 		.post(`http://localhost:2019/freelancer/4/upload`, fd)
+	// 		.then((res) => {
+	// 			console.log(res.data);
+	// 		});
+	// };
 
 	// const get = () => {
 	// 	axios.get('http://localhost:2019/image/get/' + selectedFile.name).then((res) => {
@@ -92,16 +95,15 @@ export const FreelancerDash = (props) => {
 							<Tab className={tabIndex === 4 ? 'active' : 'nonactive'}>
 								<img className="icon" src={logo1} />
 							</Tab>
+							<Tab className={tabIndex === 4 ? 'active' : 'nonactive'}>
+								<img className="icon" src={logo1} />
+							</Tab>
 						</TabList>
 					</div>
 
 					<div className="main">
 						<div className="componentdiv">
 							<TabPanel>
-								<div>
-									<input type="file" onChange={fileSelectedHandler} />
-									<button onClick={fileUploadHandler}>submit</button>
-								</div>
 							</TabPanel>
 
 							<TabPanel>
@@ -118,6 +120,12 @@ export const FreelancerDash = (props) => {
 
 							<TabPanel>
 								<h1>account settings</h1>
+								<div>
+									<input type="file" onChange={fileSelectedHandler} />
+									{/* <button onClick={fileUploadHandler}>submit</button> */}
+									<img src={selectedFile? URL.createObjectURL(selectedFile) : null} alt={selectedFile? selectedFile.name : null}/>
+		
+								</div>
 							</TabPanel>
 						</div>
 					</div>
