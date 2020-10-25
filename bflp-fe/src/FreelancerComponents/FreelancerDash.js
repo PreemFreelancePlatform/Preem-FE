@@ -9,6 +9,7 @@ import settingsIcon from '../assets/settings-24px.svg';
 import { axiosWithAuth } from '../Utils/axiosWIthAuth';
 import messages from '../assets/chat-24px.svg';
 import logo from '../assets/instagram-2-1.svg';
+import { Settings } from './Settings';
 
 /* 
 lets figure out all the stuff your going to bae able to do here
@@ -32,30 +33,12 @@ who can make changes on my behalf?
 */
 
 export const FreelancerDash = (props) => {
+	console.log(props.data);
+
 	const [tabIndex, setTabIndex] = useState(0);
 	const [subtabIndex, setSubTabIndex] = useState(0);
-	console.log(props);
-
 	const [name, setName] = useState(null);
-	const [selectedFile, setSelectedFile] = useState(null);
-	const [preview, setPreview] = useState(null);
 
-	const [image, setimage] = useState(null);
-
-	const fileSelectedHandler = (event) => {
-		setSelectedFile(event.target.files[0]);
-	};
-
-	const fileUploadHandler = () => {
-		const fd = new FormData();
-		fd.append('imageFile', selectedFile);
-		axiosWithAuth()
-			.post(`http://localhost:2019/freelancer/4/upload`, fd)
-			.then((res) => {
-				console.log(res.data);
-			});
-		setSelectedFile(null);
-	};
 
 	// const get = () => {
 	// 	axios.get('http://localhost:2019/image/get/' + selectedFile.name).then((res) => {
@@ -122,15 +105,9 @@ export const FreelancerDash = (props) => {
 
 						<TabPanel>
 							<div className="settings">
-								<h1 className="tabTitle">Profile Settings</h1>
-								<div className="content">
-									<input type="file" onChange={fileSelectedHandler} />
-									<button onClick={fileUploadHandler}>submit</button>
-									<img
-										className="profileimg"
-										src={selectedFile ? URL.createObjectURL(selectedFile) : null}
-										alt={selectedFile ? selectedFile.name : null}
-									/>
+								<h1 className="tabTitle">Profile Settings and save button</h1>
+								<div className="contentContainer">
+									<Settings self={props.data}/>
 								</div>
 							</div>
 						</TabPanel>
