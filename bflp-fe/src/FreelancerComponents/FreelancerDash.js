@@ -5,7 +5,10 @@ import logo1 from '../iconsnstuff/baseline_tonality_black_18dp-1.png';
 import DashboardIcon from '../assets/dashboard-24px.svg';
 import profileicon from '../assets/account_circle-24px.svg';
 import jobicon from '../assets/public-24px.svg';
+import settingsIcon from '../assets/settings-24px.svg';
 import { axiosWithAuth } from '../Utils/axiosWIthAuth';
+import messages from '../assets/chat-24px.svg';
+import logo from '../assets/instagram-2-1.svg';
 
 /* 
 lets figure out all the stuff your going to bae able to do here
@@ -40,19 +43,19 @@ export const FreelancerDash = (props) => {
 	const [image, setimage] = useState(null);
 
 	const fileSelectedHandler = (event) => {
-
-		setSelectedFile(event.target.files[0]);		
+		setSelectedFile(event.target.files[0]);
 	};
 
-	// const fileUploadHandler = () => {
-	// 	const fd = new FormData();
-	// 	fd.append('imageFile', selectedFile);
-	// 	axiosWithAuth()
-	// 		.post(`http://localhost:2019/freelancer/4/upload`, fd)
-	// 		.then((res) => {
-	// 			console.log(res.data);
-	// 		});
-	// };
+	const fileUploadHandler = () => {
+		const fd = new FormData();
+		fd.append('imageFile', selectedFile);
+		axiosWithAuth()
+			.post(`http://localhost:2019/freelancer/4/upload`, fd)
+			.then((res) => {
+				console.log(res.data);
+			});
+		setSelectedFile(null);
+	};
 
 	// const get = () => {
 	// 	axios.get('http://localhost:2019/image/get/' + selectedFile.name).then((res) => {
@@ -75,10 +78,6 @@ export const FreelancerDash = (props) => {
 			<Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
 				<div className="grid">
 					<div className="nav">
-						<div className="profile">
-							<img className="icon" src={profileicon} />
-						</div>
-
 						<TabList className="tablist">
 							{/* <Tab className={tabIndex === 0 ? 'active' : 'nonactive'}>
 								<img className="profile" src={"f"} />
@@ -90,44 +89,51 @@ export const FreelancerDash = (props) => {
 								<img className="icon" src={jobicon} />
 							</Tab>
 							<Tab className={tabIndex === 3 ? 'active' : 'nonactive'}>
-								<img className="icon" src={logo1} />
+								<img className="icon" src={messages} />
 							</Tab>
-							<Tab className={tabIndex === 4 ? 'active' : 'nonactive'}>
-								<img className="icon" src={logo1} />
-							</Tab>
-							<Tab className={tabIndex === 4 ? 'active' : 'nonactive'}>
-								<img className="icon" src={logo1} />
+
+							<Tab className={tabIndex === 5 ? 'active' : 'nonactive'}>
+								<img className="icon" src={settingsIcon} />
 							</Tab>
 						</TabList>
 					</div>
 
 					<div className="main">
-						<div className="componentdiv">
-							<TabPanel>
-							</TabPanel>
-
-							<TabPanel>
-								<h1>analytics</h1>
-							</TabPanel>
-
-							<TabPanel>
-								<h1>messages</h1>
-							</TabPanel>
-
-							<TabPanel>
-								<JobBoard />
-							</TabPanel>
-
-							<TabPanel>
-								<h1>account settings</h1>
+						<div className="topbar"></div>
+						<TabPanel>
+							<div className="div4">
 								<div>
-									<input type="file" onChange={fileSelectedHandler} />
-									{/* <button onClick={fileUploadHandler}>submit</button> */}
-									<img src={selectedFile? URL.createObjectURL(selectedFile) : null} alt={selectedFile? selectedFile.name : null}/>
-		
+									<h1>HOME</h1>
 								</div>
-							</TabPanel>
-						</div>
+							</div>
+						</TabPanel>
+
+						<TabPanel>
+							<div className="div4">
+								<JobBoard />
+							</div>
+						</TabPanel>
+
+						<TabPanel>
+							<div className="div4">
+								<h1>messages</h1>
+							</div>
+						</TabPanel>
+
+						<TabPanel>
+							<div className="settings">
+								<h1 className="tabTitle">Profile Settings</h1>
+								<div className="content">
+									<input type="file" onChange={fileSelectedHandler} />
+									<button onClick={fileUploadHandler}>submit</button>
+									<img
+										className="profileimg"
+										src={selectedFile ? URL.createObjectURL(selectedFile) : null}
+										alt={selectedFile ? selectedFile.name : null}
+									/>
+								</div>
+							</div>
+						</TabPanel>
 					</div>
 				</div>
 			</Tabs>

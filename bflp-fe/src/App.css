@@ -1,6 +1,5 @@
 .tabdiv {
 	background-color: #222327;
-
 	/* dashboard container */
 }
 
@@ -11,28 +10,28 @@
 }
 
 .nav {
+	/* border: 2px solid blue; */
 	margin: 0;
 	position: relative;
-	top: 50%;
+	top: 49.8%;
 	transform: translateY(-50%);
 	background: #303238;
-	min-width: 3.5%;
+	min-width: 3%;
 	height: 100%;
-	border-radius: 5px;
-
 	/* left side container */
 }
 
 .tablist {
+	/* border: 1px solid red; */
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
 	width: 100%;
-	height: 50%;
+	height: 75%;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	justify-content: space-around;
+	justify-content: space-evenly;
 	/* div around the tabs */
 }
 
@@ -43,42 +42,59 @@
 }
 
 .main {
+	/* border: 1px solid blue; */
 	display: flex;
 	flex-direction: column;
-	width: 96%;
+	width: 100%;
 	height: 100%;
 	position: relative;
 }
 
 .topbar {
 	background: #303238;
-	width: 100%;
-	height: 4%;
-	text-align: center;
+	min-width: 100%;
+	min-height: 3%;
 }
 
 .profile {
 	border-bottom: 1px solid #6d6e77;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	min-width: 100%;
-	min-height: 10%;
-}
-
-.componentdiv {
-	color: #c9c9cb;
+	min-height: 3%;
 }
 
 .icon {
 	width: 30px;
 }
 
-.show{
-
+.settings {
+	border: 1px solid green;
+	position: absolute;
+	top: 3%;
+	height: 97%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
 }
 
-.hide{
-	display: none;
+.content {
+	width: 50%;
+	height: 50%;
+	background: #303238;
+	border-radius: 25px;
+}
+
+.logo {
+	height: 30px;
+}
+
+.tabTitle {
+	position: relative;
+	border: 1px solid green;
+	padding: 20px;
+	max-height: 50px;
 }
 
 /* 
@@ -114,15 +130,18 @@ background-color: #1e1e2f
   */
 
 /*  
-  home icon: 
-  job board icon: dashboard
-  jobs icon: assignment
   profile icon: account box
     */
 
 /*  
 things i know i wont change
 notification icon: bell
-settings icon: settings
+
 
    */
+
+/* .profileimg {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+} */
