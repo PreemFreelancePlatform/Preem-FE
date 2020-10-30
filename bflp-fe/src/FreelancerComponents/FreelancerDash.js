@@ -33,12 +33,13 @@ who can make changes on my behalf?
 */
 
 export const FreelancerDash = (props) => {
-	console.log(props.data);
-
 	const [tabIndex, setTabIndex] = useState(0);
 	const [subtabIndex, setSubTabIndex] = useState(0);
 	const [name, setName] = useState(null);
 
+	if (props.data.picByte) {
+		console.log(props.data.picByte.length);
+	}
 
 	// const get = () => {
 	// 	axios.get('http://localhost:2019/image/get/' + selectedFile.name).then((res) => {
@@ -75,7 +76,7 @@ export const FreelancerDash = (props) => {
 								<img className="icon" src={messages} />
 							</Tab>
 
-							<Tab className={tabIndex === 5 ? 'active' : 'nonactive'}>
+							<Tab className={tabIndex === 4 ? 'active' : 'nonactive'}>
 								<img className="icon" src={settingsIcon} />
 							</Tab>
 						</TabList>
@@ -107,7 +108,7 @@ export const FreelancerDash = (props) => {
 							<div className="settings">
 								<h1 className="tabTitle">Profile Settings and save button</h1>
 								<div className="contentContainer">
-									<Settings self={props.data}/>
+									<Settings self={props.data} />
 								</div>
 							</div>
 						</TabPanel>

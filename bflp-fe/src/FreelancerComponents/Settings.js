@@ -1,43 +1,44 @@
 import React, { useState } from 'react';
 import { axiosWithAuth } from '../Utils/axiosWIthAuth';
 
-export const Settings = () => {
+export const Settings = (props) => {
+	const [file, setFile] = useState({
+		preview: '',
+		raw: '',
+	});
 
-	const [selectedFile, setSelectedFile] = useState(null);
-	const [preview, setPreview] = useState(null);
-	const [image, setimage] = useState(null);
-
-
-	const fileSelectedHandler = (event) => {
-		setSelectedFile(event.target.files[0]);
+	const handleChange = (e) => {
+		if (e.target.files.length) {
+			setFile({
+				preview: URL.createObjectURL(e.target.files[0]),
+				raw: e.target.files[0],
+			});
+		}
 	};
 
 	const fileUploadHandler = () => {
 		const fd = new FormData();
-		fd.append('imageFile', selectedFile);
+		fd.append('imageFile', file.raw);
 		axiosWithAuth()
-			.post(`http://localhost:2019/freelancer/4/upload`, fd)
+			.post(`http://localhost:2019/freelancer/upload/4`, fd)
 			.then((res) => {
 				console.log(res.data);
 			});
-		setSelectedFile(null);
 	};
 
+	{
+		/* <img src={`data:image/jpg/png;base64,${props.self.picByte}`} /> */
+	}
 	return (
-			<div className="imgcontainer">
-				<div>
-				<input type="file" onChange={fileSelectedHandler} />
-				<button onClick={fileUploadHandler}>submit</button>
-				</div>
-
-				<div>
-				<img className="profileimg"
-				src={selectedFile ? URL.createObjectURL(selectedFile) : null}
-				alt={selectedFile ? selectedFile.name : null} 
-				/>
+		<div className="imgcontainer">
+			<div className="imgshape">
+				<label htmlFor="fileUpload">
+					<img className="okk" src={file.preview ? file.preview : null} />
+				</label>
 			</div>
-		</div>
-		
+			<input type="file" id="fileUpload" onChange={handleChange} />
 
+			{/* <button onClick={fileUploadHandler}>submit</button> */}
+		</div>
 	);
 };
