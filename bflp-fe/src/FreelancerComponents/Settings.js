@@ -7,6 +7,8 @@ export const Settings = (props) => {
 		raw: '',
 	});
 
+	console.log(props);
+
 	const handleChange = (e) => {
 		if (e.target.files.length) {
 			setFile({
@@ -26,19 +28,19 @@ export const Settings = (props) => {
 			});
 	};
 
-	{
-		/* <img src={`data:image/jpg/png;base64,${props.self.picByte}`} /> */
-	}
 	return (
-		<div className="imgcontainer">
-			<div className="imgshape">
-				<label htmlFor="fileUpload">
-					<img className="okk" src={file.preview ? file.preview : null} />
-				</label>
-			</div>
-			<input type="file" id="fileUpload" onChange={handleChange} />
+		<div className="contentContainer">
+			<div className="imgcontainer">
+				<div className="imgshape">
+					<label htmlFor="fileUpload">
+						<img className="okk" src={file.preview ? file.preview : null} />
+					</label>
+				</div>
+				<input type="file" id="fileUpload" onChange={handleChange} />
 
-			{/* <button onClick={fileUploadHandler}>submit</button> */}
+				{/* <button onClick={fileUploadHandler}>submit</button> */}
+			</div>
+			{/* <img src={`data:image/jpg/png;base64,${props.self.picByte}`} /> */}
 		</div>
 	);
 };

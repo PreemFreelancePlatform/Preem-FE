@@ -1,36 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { axiosWithAuth } from '../Utils/axiosWIthAuth';
 import { Job } from './Job';
+import { Pagination } from './Pagination';
 
-export default class JobBoard extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			jobs: [],
-		};
-	}
+export const JobBoard = () => {
+	const [loading, setLoading] = useState(false);
+	const [posts, setPosts] = useState([]);
 
-	componentDidMount() {
+	const [currentPage, setCurrentPage] = useState(1);
+	const [postsPerPage] = useState(12);
+
+	useEffect(() => {
+		setLoading(true);
 		axiosWithAuth()
 			.get('http://localhost:2019/customer/post/posts')
 			.then((res) => {
-				this.setState(() => ({ jobs: res.data }));
+				setPosts(res.data);
+				setLoading(false);
 			})
 			.catch((err) => console.log(err.res));
-	}
+	}, []);
 
-	render() {
-		return (
+	const indexOfLastPost = currentPage * postsPerPage;
+	const indexOfFirstPost = indexOfLastPost - postsPerPage;
+	const currentPost = posts.slice(indexOfFirstPost, indexOfLastPost);
+
+	const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+	return (
+		<div className="jobpost-cont">
+			<h1 className="jobtitle">Job Board</h1>
 			<div>
-				{this.state.jobs.map((item, index) => {
-					return (
-						<div key={item.postid}>
-							<Job name={item.name} info={item.description} tech={item.tech} id={item.postid} />
-							--------------------------------------------------------
-						</div>
-					);
-				})}
+				<Job jobs={currentPost} loading={loading} />
+				<Pagination postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate} />
 			</div>
-		);
-	}
-}
+		</div>
+	);
+};
