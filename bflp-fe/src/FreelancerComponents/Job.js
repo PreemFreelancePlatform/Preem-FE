@@ -1,37 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-export const Job = ({ jobs, loading }) => {
+export const Job = ({ jobs, loading, handleactive }) => {
+	// write fucntion that only lets you apply to something once
+
+	/*  
+	|person posting|color coded stack(website)|How long ago was posted|		
+	
+	*/
 	if (loading) {
 		return <h2>Loading.....</h2>;
 	}
-	// write fucntion that only lets you apply to something once
-	console.log(jobs);
+
 	return (
-		<table className="content-table">
-			<thead>
-				<tr>
-					<th>COLUMN 1</th>
-					<th>COLUMN 2</th>
-					<th>COLUMN 3</th>
-					<th>COLUMN 4</th>
-					<th>COLUMN 5</th>
-				</tr>
-			</thead>
-			<tbody>
-				{jobs.map((jobs) => (
-					<tr key={jobs.postid} className="rows">
-						{/* <img src={`data:image/jpg/png;base64,${jobs.customer.picByte}`} className="postimage" /> */}
-						<td>
-							{jobs.customer.username}
-							{jobs.customer.customeremail}
-						</td>
-						<td>{jobs.name}</td>
-						<td>{jobs.description}</td>
-						<td>{jobs.tech}</td>
-						<td>date created</td>
-					</tr>
-				))}
-			</tbody>
-		</table>
+		<div className="leftside-content">
+			{jobs.map((item, index) => (
+				<div className="row">
+					<li className="row-container">
+						<span>here is some info</span>
+					</li>
+					<li className="row-container">
+						<span>here is some info</span>
+					</li>
+					<li className="row-container">
+						<span>here is some info</span>
+					</li>
+					<li className="row-container">
+						<span>here is some info</span>
+					</li>
+				</div>
+			))}
+		</div>
 	);
 };

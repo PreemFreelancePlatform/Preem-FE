@@ -54,13 +54,12 @@ export const FreelancerDash = (props) => {
 	return (
 		<div>
 			<nav className={hamburgerMenu ? 'navbar-wide' : 'navbar'}>
-				<ul className="navbar-nav ">
+				<ul className="navbar-nav">
 					<img
-						className="burgermenu"
+						className="icon"
 						src={hamburgerMenu ? closemenu : openmenu}
 						onClick={() => setHamburgerMenu(!hamburgerMenu)}
 					/>
-
 					{tabList.map((tab, index) => (
 						<li
 							className={activeTab === index ? 'active-tab' : 'nav-item'}

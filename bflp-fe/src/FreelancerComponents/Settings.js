@@ -37,9 +37,8 @@ export const Settings = (props) => {
 					</label>
 				</div>
 				<input type="file" id="fileUpload" onChange={handleChange} />
-
-				{/* <button onClick={fileUploadHandler}>submit</button> */}
 			</div>
+			{/* <button onClick={fileUploadHandler}>submit</button> */}
 			{/* <img src={`data:image/jpg/png;base64,${props.self.picByte}`} /> */}
 		</div>
 	);
