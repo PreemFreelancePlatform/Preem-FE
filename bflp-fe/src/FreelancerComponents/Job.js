@@ -11,12 +11,17 @@ export const Job = ({ jobs, loading, handleactive }) => {
 		return <h2>Loading.....</h2>;
 	}
 
+	console.log(jobs);
+
 	return (
 		<div className="leftside-content">
+			<div className="jobheader">
+				
+			</div>
 			{jobs.map((item, index) => (
-				<div className="row">
+				<div key={index} className="row">
 					<li className="row-container">
-						<span>here is some info</span>
+						<span>{item.task}</span>
 					</li>
 					<li className="row-container">
 						<span>here is some info</span>

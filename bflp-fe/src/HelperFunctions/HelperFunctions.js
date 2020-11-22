@@ -1,12 +1,12 @@
 import { axiosWithAuth } from '../Utils/axiosWIthAuth';
 
-const getMyInfo = () => {
+export const JobBoardRequest = (setLoading, setPosts, field) => {
+	setLoading(true);
 	axiosWithAuth()
-		.get('http://localhost:2019/getmyinfo')
+		.get(`http://localhost:2019/customer/post/field/${field}`)
 		.then((res) => {
-			return res.data.locked_role;
+			setPosts(res.data);
+			setLoading(false);
 		})
-		.catch((err) => console.log(err.response));
+		.catch((err) => console.log(err.res));
 };
-
-export default { getMyInfo };

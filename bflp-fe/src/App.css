@@ -1,4 +1,4 @@
-* {
+/* * {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -6,6 +6,10 @@
 	font-size: 100%;
 	vertical-align: baseline;
 	background: transparent;
+} */
+
+li {
+	list-style: none;
 }
 
 :root {
@@ -298,21 +302,54 @@ body::-webkit-scrollbar-thumb {
 
 .leftside-content {
 	border: 1px solid red;
-	height: 75%;
 	display: flex;
 	flex-direction: column;
+	padding: 0.5rem 2rem 0;
 }
 
 .row {
 	margin: 20px;
-	height: 100%;
 	border: 1px solid blue;
 	display: flex;
+	height: 100%;
 }
 
 .row-container {
 	border: 1px solid green;
+	height: 2.5rem;
 	width: 100%;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+--------------------------------.dropdown {
+	border: 1px solid green;
+	padding: 2px;
+	width: 4rem;
+	height: 10rem;
+	position: fixed;
+}
+
+.hide-dropdown {
+	display: none;
+	border: 1px solid blue;
+	padding: 0;
+	margin: 0;
+}
+
+.show-dropdown {
+	border: 1px solid blue;
+	padding: 0;
+	margin: 0;
+}
+
+.dr {
+	border: 1px solid green;
+	height: 20px;
 }
 
 /* ---------------LEFT SIDE END------------ */

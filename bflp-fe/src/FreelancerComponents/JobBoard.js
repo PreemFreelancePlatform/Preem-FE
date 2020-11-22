@@ -3,28 +3,26 @@ import { axiosWithAuth } from '../Utils/axiosWIthAuth';
 import { Job } from './Job';
 import { Pagination } from './Pagination';
 import { JobSideBar } from './JobSideBar';
+import { Dropdown } from './Dropdown';
+import { JobBoardRequest } from '../HelperFunctions/HelperFunctions';
 
 export const JobBoard = () => {
+	//
 	const [loading, setLoading] = useState(false);
 	const [posts, setPosts] = useState([]);
 	const [currentPage, setCurrentPage] = useState(1);
 	const [postsPerPage] = useState(10);
 	const [activeJob, setActiveJob] = useState(0);
+	const [query, setQuery] = useState(0);
+	const [selection, setSelection] = useState('Web');
 
 	const handleActive = (index) => {
 		setActiveJob(index);
 	};
 
 	useEffect(() => {
-		setLoading(true);
-		axiosWithAuth()
-			.get('http://localhost:2019/customer/post/posts')
-			.then((res) => {
-				setPosts(res.data);
-				setLoading(false);
-			})
-			.catch((err) => console.log(err.res));
-	}, []);
+		JobBoardRequest(setLoading, setPosts, selection);
+	}, [selection]);
 
 	const indexOfLastPost = currentPage * postsPerPage;
 	const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -38,6 +36,7 @@ export const JobBoard = () => {
 				<div>
 					<h1 className="jobtitle">Job Board</h1>
 				</div>
+			<Dropdown selection={selection} setSelection={setSelection} />
 				<Job jobs={currentPost} loading={loading} handleactive={handleActive} />
 				<Pagination postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate} />
 			</div>
