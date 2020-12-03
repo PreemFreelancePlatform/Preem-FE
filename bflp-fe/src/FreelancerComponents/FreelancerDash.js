@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../styles/Shared-Styles/Nav.css';
 import { JobBoard } from './JobBoard';
 import DashboardIcon from '../assets/dashboard-24px.svg';
 import jobicon from '../assets/public-24px.svg';
@@ -47,19 +48,21 @@ export const FreelancerDash = (props) => {
 	};
 
 	const tabText = ['Dashboard', 'JobBoard', 'Messages', 'Settings'];
-	const [activeTab, setActiveTab] = useState(0);
+	const [activeTab, setActiveTab] = useState(1);
 	const [hamburgerMenu, setHamburgerMenu] = useState(false);
 	const displayTab = tabs[activeTab];
 
 	return (
 		<div>
+			<div className="topnavvy">
+				<img
+					className="icon"
+					src={hamburgerMenu ? closemenu : openmenu}
+					onClick={() => setHamburgerMenu(!hamburgerMenu)}
+				/>
+			</div>
 			<nav className={hamburgerMenu ? 'navbar-wide' : 'navbar'}>
 				<ul className="navbar-nav">
-					<img
-						className="icon"
-						src={hamburgerMenu ? closemenu : openmenu}
-						onClick={() => setHamburgerMenu(!hamburgerMenu)}
-					/>
 					{tabList.map((tab, index) => (
 						<li
 							className={activeTab === index ? 'active-tab' : 'nav-item'}

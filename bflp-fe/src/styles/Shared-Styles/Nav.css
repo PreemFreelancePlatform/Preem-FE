@@ -1,0 +1,121 @@
+.topnavvy {
+	position: fixed;
+	box-shadow: 0 3px 3px -1px rgba(128, 128, 128, 0.315);
+	height: 3rem;
+	background-color: white;
+	top: 0;
+	width: 100vw;
+	z-index: 999;
+	display: flex;
+	align-items: center;
+}
+
+.topnavvy img {
+	margin-left: 2rem;
+}
+
+.icon {
+	height: 2rem;
+}
+
+.navbar {
+	box-shadow: 0 -2px 2px 1px rgba(128, 128, 128, 0.445);
+	width: 6rem;
+	height: 100vh;
+	position: fixed;
+	top: 2rem;
+	background-color: white;
+	transition: 400ms;
+}
+
+.navbar img {
+	height: 2rem;
+}
+
+.navbar-wide img {
+	height: 2rem;
+}
+
+.navbar-wide {
+	width: 15rem;
+	height: 100vh;
+	position: fixed;
+	top: 2rem;
+	background: white;
+	transition: 400ms;
+	z-index: 1;
+	box-shadow: 0 -3px 3px 2px rgba(128, 128, 128, 0.192);
+}
+
+.navbar::-webkit-scrollbar {
+	display: none;
+}
+
+.navbar-wide::-webkit-scrollbar {
+	display: none;
+}
+
+.navbar-nav {
+	/* border: 3px solid purple; */
+	list-style: none;
+	margin-top: 1rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.nav-item {
+	width: 100%;
+	background: linear-gradient(to left, white 50%, #6749b844 50%) right;
+	background-size: 200%;
+	transition: 250ms ease-out;
+}
+
+.nav-item:hover {
+}
+
+.active-tab {
+	width: 100%;
+	overflow: hidden;
+	transition: border-left 250ms linear;
+	background: linear-gradient(to left, white 50%, #6749b844 50%) right;
+	background-size: 200%;
+	transition: 250ms ease-out;
+	background-position: left;
+}
+
+.nav-link {
+	display: flex;
+	align-items: center;
+	height: 6rem;
+	color: #6649b8;
+	text-decoration: none;
+	transition: 300ms;
+}
+
+.hide-text {
+	margin-left: 1rem;
+	display: none;
+}
+
+.show-text {
+	display: block;
+	animation: fadein ease 0.9s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+@keyframes fadein {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.nav-link img {
+	min-width: 2rem;
+	margin: 0 2rem;
+}

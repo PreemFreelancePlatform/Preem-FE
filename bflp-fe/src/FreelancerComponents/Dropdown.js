@@ -13,8 +13,7 @@ export const Dropdown = ({ selection, setSelection }) => {
 
 	return (
 		<div className="dropdown">
-			<span>{selection}</span>
-			<img className="dr" onClick={() => setOpen(!open)} src={!open ? showmore : showless} />
+			<p>{`(${selection})`} </p>
 			<ul className={open ? 'show-dropdown' : 'hide-dropdown'}>
 				{arr.map((item, index) => (
 					<li

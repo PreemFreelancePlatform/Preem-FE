@@ -1,26 +1,30 @@
-/* * {
+* {
+	font-family: 'Montserrat', sans-serif;
+}
+
+html {
 	margin: 0;
-	padding: 0;
-	border: 0;
-	outline: 0;
-	font-size: 100%;
-	vertical-align: baseline;
-	background: transparent;
-} */
+}
+
+span,
+p {
+	color: rgb(74, 95, 111);
+}
+
+.rq {
+	color: darkgray;
+}
 
 li {
 	list-style: none;
-}
-
-:root {
-	font-size: 16px;
+	color: rgb(74, 95, 111);
 }
 
 body {
-	background-color: rgb(244, 248, 249);
 	margin: 0;
 	padding: 0;
 }
+
 body::-webkit-scrollbar {
 	width: 0.5rem;
 }
@@ -34,14 +38,13 @@ body::-webkit-scrollbar-thumb {
 }
 
 .main {
-	margin-left: 5rem;
-	padding: 0 3px 0;
+	padding-left: 6.2rem;
+	background-color: rgb(244, 248, 249);
 }
 
-.icon {
-	height: 2rem;
+g {
+	fill: none;
 }
-
 /* .topbar {
 	border-bottom: 2px solid rgba(112, 128, 144, 0.246);
 	width: 100%;
@@ -70,108 +73,6 @@ body::-webkit-scrollbar-thumb {
 /* .topbar li {
 	border: 1px solid green;
 }  */
-
-.navbar {
-	width: 5rem;
-	height: 100vh;
-	position: fixed;
-	background: white;
-	transition: width 400ms ease;
-	overflow: scroll;
-	border-right: 3px solid rgba(112, 128, 144, 0.089);
-}
-
-.navbar-wide {
-	width: 15rem;
-	height: 100vh;
-	position: fixed;
-	background: white;
-	transition: width 300ms ease;
-	border-right: 3px solid rgba(112, 128, 144, 0.089);
-	overflow: scroll;
-}
-
-.navbar::-webkit-scrollbar {
-	display: none;
-}
-
-.navbar-wide::-webkit-scrollbar {
-	display: none;
-}
-
-.navbar-nav {
-	/* border: 3px solid purple; */
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-}
-
-.nav-item {
-	border-left: 3px solid transparent;
-	width: 100%;
-	background: white; /* default color */
-	background: linear-gradient(to left, white 50%, #6749b844 50%) right;
-	background-size: 200%;
-	transition: 250ms ease-out;
-}
-
-.nav-item:hover {
-	border-left: 3px solid #6649b8;
-}
-
-.active-tab {
-	width: 100%;
-	border-left: 3px solid #6649b8;
-	background: #6749b844;
-	overflow: hidden;
-	transition: border-left 250ms linear;
-	background: linear-gradient(to left, white 50%, #6749b844 50%) right;
-	background-size: 200%;
-	transition: 250ms ease-out;
-	background-position: left;
-}
-
-.nav-item:last-child {
-}
-
-.nav-link {
-	display: flex;
-	align-items: center;
-	height: 5rem;
-	color: #6649b8;
-	text-decoration: none;
-	transition: 300ms;
-}
-
-.hide-text {
-	margin-left: 1rem;
-	display: none;
-}
-
-.show-text {
-	display: block;
-	animation: fadein ease 0.9s;
-	animation-iteration-count: 1;
-	animation-fill-mode: forwards;
-}
-
-@keyframes fadein {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
-}
-
-.nav-link img {
-	min-width: 2rem;
-	margin: 0 1.5rem;
-}
 
 /* .navbar:hover .link-text {
 	display: block;
@@ -287,91 +188,7 @@ body::-webkit-scrollbar-thumb {
 	height: 100%;
 } */
 
-.jobBoard {
-	display: flex;
-	height: 100vh;
-}
-/* ---------------LEFT SIDE START------------ */
-
-.leftside {
-	width: 70%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
-
-.leftside-content {
-	border: 1px solid red;
-	display: flex;
-	flex-direction: column;
-	padding: 0.5rem 2rem 0;
-}
-
-.row {
-	margin: 20px;
-	border: 1px solid blue;
-	display: flex;
-	height: 100%;
-}
-
-.row-container {
-	border: 1px solid green;
-	height: 2.5rem;
-	width: 100%;
-}
-
-ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
---------------------------------.dropdown {
-	border: 1px solid green;
-	padding: 2px;
-	width: 4rem;
-	height: 10rem;
-	position: fixed;
-}
-
-.hide-dropdown {
-	display: none;
-	border: 1px solid blue;
-	padding: 0;
-	margin: 0;
-}
-
-.show-dropdown {
-	border: 1px solid blue;
-	padding: 0;
-	margin: 0;
-}
-
-.dr {
-	border: 1px solid green;
-	height: 20px;
-}
-
-/* ---------------LEFT SIDE END------------ */
-
-/* ---------------RIGHT SIDE START------------ */
-.rightside {
-	width: 30%;
-	border: 2px solid black;
-}
-
-.side-bar {
-	border: 1px solid red;
-}
-
-/* ---------------RIGHT SIDE END------------ */
-
-.pagination {
-	list-style-type: none;
-	display: flex;
-	flex-direction: row;
-	text-align: center;
-}
+/* ---------------------- jobSideBar ------------------ */
 
 /* .circle {
 	border-radius: 50%;
