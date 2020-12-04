@@ -2,6 +2,8 @@
 	width: 25%;
 	border-left: 1.5px solid rgba(112, 128, 144, 0.26);
 	height: 100%;
+	overflow: scroll;
+
 }
 
 .circular {

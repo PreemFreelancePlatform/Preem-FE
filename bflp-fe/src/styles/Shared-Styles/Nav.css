@@ -19,13 +19,14 @@
 }
 
 .navbar {
-	box-shadow: 0 -2px 2px 1px rgba(128, 128, 128, 0.445);
 	width: 6rem;
 	height: 100vh;
 	position: fixed;
 	top: 2rem;
 	background-color: white;
 	transition: 400ms;
+	z-index: 1;
+
 }
 
 .navbar img {
@@ -44,7 +45,6 @@
 	background: white;
 	transition: 400ms;
 	z-index: 1;
-	box-shadow: 0 -3px 3px 2px rgba(128, 128, 128, 0.192);
 }
 
 .navbar::-webkit-scrollbar {
