@@ -1,0 +1,137 @@
+.rightside {
+	width: 24%;
+	border-left: 1.5px solid rgba(112, 128, 144, 0.26);
+	height: 100%;
+	overflow: scroll;
+}
+
+.circular {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	position: relative;
+	overflow: hidden;
+	border: 1px solid rgba(61, 61, 61, 0.13);
+}
+
+.icon-circle {
+	background-color: rgb(202, 255, 229);
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.circular img {
+	width: auto;
+	height: auto;
+	position: absolute;
+	left: 10px;
+	top: 60px;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+.side-bar {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 0 8% 0;
+}
+
+.side-header {
+	width: 100%;
+	height: 100%;
+	margin-top: 3rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.side-info {
+	margin-top: 8%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.side-info-profile {
+	display: flex;
+	align-items: center;
+}
+
+.side-info-name {
+	height: 100%;
+	justify-content: space-evenly;
+	display: flex;
+	margin-left: 1rem;
+	flex-direction: column;
+}
+
+.side-info-time {
+	display: flex;
+	margin-right: 2rem;
+	align-items: center;
+}
+
+.side-info-date {
+	height: 100%;
+	display: flex;
+	margin-left: 1rem;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+.side-task {
+	margin: 0;
+	color: #28282fd7;
+	line-height: 40px;
+	font-size: 1.5rem;
+	font-family: Montserrat;
+}
+
+.side-id {
+	color: rgb(31, 158, 255);
+	font-size: 1rem;
+	padding-top: 8%;
+}
+
+.side-content {
+	border-top: 1.5px solid rgba(112, 128, 144, 0.26);
+	font-size: 1.5rem;
+	margin-top: 3rem;
+	line-height: 1.5em;
+	height: 100%;
+	width: 100%;
+}
+
+.dah5 {
+	padding-left: 10px;
+	margin: 0;
+}
+
+.side-content-icon {
+	padding-top: 3rem;
+	display: flex;
+	color: #1e1e24;
+	align-items: center;
+}
+
+.submit-button {
+	width: 80%;
+	color: #ffffff;
+	font-size: 1rem;
+	margin: 0 auto 10rem;
+	padding: 1rem;
+	border-radius: 10px;
+	border: 0;
+	background: #9525e6;
+	outline: none;
+}
+
+.submit-button:hover {
+	background: #7821b6;
+	cursor: pointer;
+}

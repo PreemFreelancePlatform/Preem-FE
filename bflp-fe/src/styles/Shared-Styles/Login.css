@@ -1,0 +1,10 @@
+.formbox {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-image: linear-gradient(to left top, #000000, #101010, #191919, #232323, #2c2c2c);
+	width: 20vw;
+	margin: auto;
+	height: 50vh;
+}

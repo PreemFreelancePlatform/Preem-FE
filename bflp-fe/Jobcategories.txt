@@ -1,6 +1,5 @@
-Web Dev {
+Web Development {
 Back-End Dev
-Database Dev
 Ecommerce Dev
 Front-End Dev
 Full Stack Dev
@@ -12,8 +11,15 @@ VR Dev
 CMS Dev (wordpress)
 }
 
+Web Development
+Mobile Development
+desktop Development
+Game Development
+Design & Creative
+Data Science
+IT
 
-Mobile Dev {
+Mobile Development {
 IOS App Dev
 Andriod App Dev
 Testing
