@@ -3,13 +3,6 @@ import '../styles/Shared-Styles/Landing.css';
 import picture from '../pics/benedikt-jaletzke-rbP4Mut0MA0-unsplash.jpg';
 import { ReactComponent as Logo } from '../assets/adwords.svg';
 
-/*
-bflp-fe\src\pics\benedikt-jaletzke-rbP4Mut0MA0-unsplash.jpg
-bflp-fe\src\pics\jack-b-o1radglopDA-unsplash.jpg
-bflp-fe\src\pics\kristopher-roller-zepnJQycr4U-unsplash.jpg
-bflp-fe\src\pics\robert-katzki-jbtfM0XBeRc-unsplash.jpg
-
-*/
 
 export const Landing = () => {
 	const [slide, setslide] = useState(true);
