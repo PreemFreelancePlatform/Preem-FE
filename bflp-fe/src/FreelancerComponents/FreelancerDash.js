@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/Shared-Styles/Nav.css';
-import { JobBoard } from './JobBoard';
+import { JobBoard } from './JobBoardTab/Main/JobBoard';
 import DashboardIcon from '../assets/dashboard-24px.svg';
 import jobicon from '../assets/public-24px.svg';
 import settingsIcon from '../assets/settings-24px.svg';
@@ -11,9 +11,9 @@ import { ReactComponent as Logo } from '../assets/adwords.svg';
 import { ReactComponent as Account } from '../assets/account_circle-24px.svg';
 import { ReactComponent as Notifications } from '../assets/notifications-24px.svg';
 
-import { Settings } from './Settings';
-import { Home } from './Home';
-import { Communication } from '../GlobalComponents/Communication';
+import { Settings } from './SettingsTab/Settings';
+import { Home } from './HomeTab/Home';
+import { Communication } from '../DeprecatedComponents/Communication';
 
 /* 
 lets figure out all the stuff your going to bae able to do here

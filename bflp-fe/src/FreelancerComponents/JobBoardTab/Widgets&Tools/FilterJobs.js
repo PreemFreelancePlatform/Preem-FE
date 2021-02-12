@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { ReactComponent as Clear } from '../assets/clear-24px.svg';
-import { ReactComponent as Check } from '../assets/done-24px.svg';
-import { getSubList } from '../HelperFunctions/HelperFunctions';
+import { ReactComponent as Clear } from '../../../assets/clear-24px.svg';
+import { ReactComponent as Check } from '../../../assets/done-24px.svg';
+import { getSubList } from '../../../HelperFunctions/HelperFunctions';
 
 export const FilterJobs = ({ setFilteroptions, filteroptions }) => {
 	const [openfilter, setOpenfilter] = useState(false);

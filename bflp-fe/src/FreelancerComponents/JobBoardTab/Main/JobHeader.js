@@ -1,9 +1,9 @@
 import React from 'react';
-import { SortJobs } from './SortJobs';
-import { FilterJobs } from './FilterJobs';
-import '../styles/FreelancerStyles/Job-Board/JobHeader.css';
-import { BudgetFilter } from './BudgetFilter';
-import { Searchjobs } from './Searchjobs';
+import { SortJobs } from '../Widgets&Tools/SortJobs';
+import { FilterJobs } from '../Widgets&Tools/FilterJobs';
+import '../../../styles/FreelancerStyles/JobBoardTab/JobHeader.css'
+import { BudgetFilter } from '../Widgets&Tools/BudgetFilter';
+import { Searchjobs } from '../Widgets&Tools/Searchjobs';
 
 export const JobHeader = ({ sortby, totaljobs, setSortby, filteroptions, setFilteroptions }) => {
 	return (

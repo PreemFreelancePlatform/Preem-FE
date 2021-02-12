@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { axiosWithAuth } from '../Utils/axiosWIthAuth';
+import { axiosWithAuth } from '../../Utils/axiosWIthAuth';
 
 export const Settings = (props) => {
 	const [file, setFile] = useState({

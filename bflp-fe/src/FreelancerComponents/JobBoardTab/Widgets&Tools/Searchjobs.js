@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ReactComponent as Searchsvg } from '../assets/search-24px.svg';
+import { ReactComponent as Searchsvg } from '../../../assets/search-24px.svg';
 
 export const Searchjobs = () => {
 	const [search, setSearch] = useState('');

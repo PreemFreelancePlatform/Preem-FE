@@ -1,7 +1,7 @@
 import React from 'react';
-import calendar from '../assets/calendar_today-24px.svg';
-import moneysign from '../assets/local_atm-24px.svg';
-import summary from '../assets/format_align_left-24px.svg';
+import calendar from '../../../assets/calendar_today-24px.svg';
+import moneysign from '../../../assets/local_atm-24px.svg';
+import summary from '../../../assets/format_align_left-24px.svg';
 
 export const JobSideBar = ({ data }) => {
 	return (

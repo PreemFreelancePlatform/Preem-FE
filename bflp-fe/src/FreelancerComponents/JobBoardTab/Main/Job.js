@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { daysBetween } from '../HelperFunctions/HelperFunctions';
-import '../styles/FreelancerStyles/Job-Board/job-color-code.css';
-import { colorcode } from './colorcode';
+import { daysBetween } from '../../../HelperFunctions/HelperFunctions';
+import '../../../styles/FreelancerStyles/JobBoardTab/job-color-code.css';
+import { colorcode } from '../Widgets&Tools/colorcode';
 
 export const Job = ({ jobs, loading, handleactive, active }) => {
 	// write fucntion that only lets you apply to something once

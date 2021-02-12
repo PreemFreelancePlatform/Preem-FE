@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { ReactComponent as Moneyicon } from '../assets/attach_money-24px.svg';
-import { ReactComponent as Clear } from '../assets/clear-24px.svg';
+import { ReactComponent as Moneyicon } from '../../../assets/attach_money-24px.svg';
+import { ReactComponent as Clear } from '../../../assets/clear-24px.svg';
 
 export const BudgetFilter = ({ setFilteroptions, filteroptions }) => {
 	const [budgetfilter, setBudgetFilter] = useState(false);

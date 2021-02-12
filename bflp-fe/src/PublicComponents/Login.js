@@ -27,12 +27,6 @@ export const Login = () => {
 		});
 	};
 
-	const fblogin = (e) => {
-		Axios.get('http://localhost:2019/oauth_login').then((res) => {
-			console.log(res);
-		});
-	};
-
 	const handleSubmit = (e) => {
 		Axios.post(
 			'http://localhost:2019/login',
@@ -124,13 +118,6 @@ export const Login = () => {
 				<input type="submit" className="fadeIn fourth" value="Log In" />
 			</form>
 			<div id="formFooter"></div>\
-			<button
-				onClick={() => {
-					fblogin();
-				}}
-			>
-				facebook login
-			</button>
 		</div>
 	);
 };

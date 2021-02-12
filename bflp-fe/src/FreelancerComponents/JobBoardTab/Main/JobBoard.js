@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { axiosWithAuth } from '../Utils/axiosWIthAuth';
-import '../styles/FreelancerStyles/Job-Board/Left-side.css';
-import '../styles/FreelancerStyles/Job-Board/Right-side.css';
+import { axiosWithAuth } from '../../../Utils/axiosWIthAuth';
+import '../../../styles/FreelancerStyles/JobBoardTab/Left-side.css';
+import '../../../styles/FreelancerStyles/JobBoardTab/Right-side.css';
 import { Job } from './Job';
 import { JobSideBar } from './JobSideBar';
-import { JobBoardRequest, sortem, daysBetween } from '../HelperFunctions/HelperFunctions';
+import { JobBoardRequest, sortem, daysBetween } from '../../../HelperFunctions/HelperFunctions';
 import { JobHeader } from './JobHeader';
-import { FilterJobs } from './FilterJobs';
-import { Pagination } from './Pagination';
+import { FilterJobs } from '../Widgets&Tools/FilterJobs';
+import { Pagination } from '../Widgets&Tools/Pagination';
 
 export const JobBoard = (props) => {
 	const [loading, setLoading] = useState(false);
