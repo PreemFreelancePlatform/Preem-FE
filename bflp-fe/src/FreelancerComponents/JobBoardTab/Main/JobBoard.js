@@ -4,7 +4,8 @@ import '../../../styles/FreelancerStyles/JobBoardTab/Left-side.css';
 import '../../../styles/FreelancerStyles/JobBoardTab/Right-side.css';
 import { Job } from './Job';
 import { JobSideBar } from './JobSideBar';
-import { JobBoardRequest, sortem, daysBetween } from '../../../HelperFunctions/HelperFunctions';
+import {sortem} from '../../../HelperFunctions/HelperFunctions';
+import {getJobs} from '../../../HelperFunctions/NetworkRequests'
 import { JobHeader } from './JobHeader';
 import { FilterJobs } from '../Widgets&Tools/FilterJobs';
 import { Pagination } from '../Widgets&Tools/Pagination';
@@ -28,12 +29,11 @@ export const JobBoard = (props) => {
 	};
 
 	useEffect(() => {
-		JobBoardRequest(setLoading, setPosts, selection, filteroptions, setTotalPages);
+		getJobs(setLoading, setPosts, selection, filteroptions, setTotalPages);
 	}, [selection, filteroptions]);
 
 	sortem(sortBy, posts);
 	const PanelData = posts[activeJob];
-
 
 	if (totalPages && PanelData && !loading) {
 		return (

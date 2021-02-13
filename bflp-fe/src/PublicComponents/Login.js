@@ -1,23 +1,15 @@
 import Axios from 'axios';
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { loginFlow } from '../HelperFunctions/HelperFunctions';
-import { axiosWithAuth } from '../Utils/axiosWIthAuth';
+import { doLogin } from '../HelperFunctions/NetworkRequests';
 import { Redirect } from 'react-router-dom';
 
 export const Login = () => {
 	const [badCreds, setBadCreds] = useState(false);
 	const [dispatch, setDispatch] = useState(false);
+	const [user, setUser] = useState();
 	const [creds, setCreds] = useState({
 		username: '',
 		password: '',
-	});
-
-	const [user, setUser] = useState({
-		role: '',
-		completed: false,
-		setup: '',
-		username: '',
 	});
 
 	const handleChange = (e) => {
@@ -28,52 +20,11 @@ export const Login = () => {
 	};
 
 	const handleSubmit = (e) => {
-		Axios.post(
-			'http://localhost:2019/login',
-			`grant_type=password&username=${creds.username}&password=${creds.password}`,
-			{
-				headers: {
-					// btoa is converting our client id/client secret into base64
-					Authorization: `Basic ${btoa('clientid:clientsecret')}`,
-					'Content-Type': 'application/x-www-form-urlencoded',
-				},
-			}
-		)
-			.then((res) => {
-				localStorage.setItem('token', res.data.access_token);
-				return axiosWithAuth()
-					.get('http://localhost:2019/getmyinfo')
-					.then((res) => {
-						setUser({
-							role: res.data.locked_role,
-							setup: res.data.setup,
-							username: res.data.username,
-							completed: true,
-						});
-						setDispatch(true);
-					})
-					.catch((err) => {
-						console.log(err + 'getmyinfo failed');
-					});
-			})
-
-			.catch((err) => {
-				if (err.response) {
-					// client received an error response (5xx, 4xx)
-					if (err.response.status === 401) {
-						setBadCreds(true);
-						console.log(err);
-					}
-				}
-				if (err.request) {
-					// client never received a response, or request never left
-					console.log('req err');
-				}
-			});
+		doLogin(creds, setUser, setDispatch, setBadCreds);
 	};
 
 	if (dispatch) {
-		switch (user.role) {
+		switch (user.locked_role) {
 			case 'customer':
 				return <Redirect to={`/customer/${user.username}`} />;
 

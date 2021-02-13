@@ -9,7 +9,7 @@ export default function PrivateRouteCustomer({ props, component: Component, ...r
 		await axiosWithAuth()
 			.get('http://localhost:2019/getmyinfo')
 			.then((res) => {
-				setUserData(res.data);
+				setUserData(res.data.locked_role);
 			})
 			.catch((err) => console.log(err.res));
 	};
@@ -24,7 +24,7 @@ export default function PrivateRouteCustomer({ props, component: Component, ...r
 				<Route
 					{...rest}
 					render={() => {
-						if (localStorage.getItem('token') && userData.locked_role === 'customer')
+						if (localStorage.getItem('token') && userData === 'customer')
 							return <Component data={userData} />;
 						else {
 							return <Redirect to="/login" />;

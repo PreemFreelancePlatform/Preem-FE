@@ -15,7 +15,5 @@ export const Pagination = ({ totalPages }) => {
 	}, []);
 
     console.log(pageArrayWindow);
-
-
 	return <div></div>;
 };

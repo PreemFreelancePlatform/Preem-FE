@@ -1,31 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { axiosWithAuth } from './axiosWIthAuth';
+import {getMyInfo} from '../HelperFunctions/NetworkRequests'
 
 export default function PrivateRouteFreelancer({ props, component: Component, ...rest }) {
-	const [userData, setUserData] = useState(null);
-
-	const getMyinfo = async () => {
-		await axiosWithAuth()
-			.get('http://localhost:2019/getmyinfo')
-			.then((res) => {
-				setUserData(res.data);
-			})
-			.catch((err) => console.log(err.res));
-	};
+	const [user, setUser] = useState(null)
 
 	useEffect(() => {
-		getMyinfo();
+		getMyInfo(setUser);
 	}, []);
 
-	if (userData != null) {
+	if (user != null) {
 		return (
 			<div>
 				<Route
 					{...rest}
 					render={() => {
-						if (localStorage.getItem('token') && userData.locked_role === 'freelancer')
-							return <Component data={userData} />;
+						if (localStorage.getItem('token') && user.locked_role === 'freelancer')
+							return <Component data={user} />;
 						else {
 							return <Redirect to="/login" />;
 						}

@@ -10,34 +10,12 @@ import closemenu from '../assets/menu_open-24px.svg';
 import { ReactComponent as Logo } from '../assets/adwords.svg';
 import { ReactComponent as Account } from '../assets/account_circle-24px.svg';
 import { ReactComponent as Notifications } from '../assets/notifications-24px.svg';
-
 import { Settings } from './SettingsTab/Settings';
 import { Home } from './HomeTab/Home';
 import { Communication } from '../DeprecatedComponents/Communication';
 
-/* 
-lets figure out all the stuff your going to bae able to do here
- As a freelancer i can:
-    view current projects im working on.
-    view customer queue if any
-    view customer messages
-
-    view any analytics
-    change any of my profile information
-    view job board and aply to jobs
-
-who can view me?
-    other freelancers
-    customers
-    admin
- 
-who can make changes on my behalf?
-    me
-    admin
-*/
 
 export const FreelancerDash = (props) => {
-
 	const [tabList, setListTabs] = useState([
 		<img className="icon" src={DashboardIcon} />,
 		<img className="icon" src={jobicon} />,
@@ -51,6 +29,8 @@ export const FreelancerDash = (props) => {
 		2: <Communication />,
 		3: <Settings data={props.data} />,
 	};
+
+	console.log(props)
 
 	const tabText = ['Dashboard', 'JobBoard', 'Messages', 'Settings'];
 	const [activeTab, setActiveTab] = useState(1);
@@ -67,7 +47,7 @@ export const FreelancerDash = (props) => {
 				/>
 				<div className="mainlogo">
 					<Logo />
-					<span>Simple</span>
+					<span>preem</span>
 				</div>
 
 				<div className="navright">
