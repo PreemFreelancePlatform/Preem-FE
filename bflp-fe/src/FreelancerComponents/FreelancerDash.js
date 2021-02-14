@@ -16,27 +16,25 @@ import { Communication } from '../DeprecatedComponents/Communication';
 
 
 export const FreelancerDash = (props) => {
+	const tabText = ['Dashboard', 'JobBoard', 'Messages', 'Settings'];
 	const [tabList, setListTabs] = useState([
 		<img className="icon" src={DashboardIcon} />,
 		<img className="icon" src={jobicon} />,
 		<img className="icon" src={messages} />,
 		<img className="icon" src={settingsIcon} />,
 	]);
-
 	const tabs = {
 		0: <Home />,
 		1: <JobBoard category={props.data.category}/>,
 		2: <Communication />,
 		3: <Settings data={props.data} />,
 	};
-
-	console.log(props)
-
-	const tabText = ['Dashboard', 'JobBoard', 'Messages', 'Settings'];
 	const [activeTab, setActiveTab] = useState(1);
 	const [hamburgerMenu, setHamburgerMenu] = useState(false);
 	const displayTab = tabs[activeTab];
+	console.log(props)
 
+	
 	return (
 		<div>
 			<div className="topnavvy">

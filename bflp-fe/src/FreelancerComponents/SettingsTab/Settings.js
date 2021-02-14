@@ -7,7 +7,7 @@ export const Settings = (props) => {
 		raw: '',
 	});
 
-	console.log(props);
+	console.log(props.data);
 
 	const handleChange = (e) => {
 		if (e.target.files.length) {
@@ -22,7 +22,7 @@ export const Settings = (props) => {
 		const fd = new FormData();
 		fd.append('imageFile', file.raw);
 		axiosWithAuth()
-			.post(`http://localhost:2019/freelancer/upload/4`, fd)
+			.post(`http://localhost:2019/freelancer/upload/${props.data.id}`, fd)
 			.then((res) => {
 				console.log(res.data);
 			});
@@ -38,8 +38,8 @@ export const Settings = (props) => {
 				</div>
 				<input type="file" id="fileUpload" onChange={handleChange} />
 			</div>
-			{/* <button onClick={fileUploadHandler}>submit</button> */}
-			{/* <img src={`data:image/jpg/png;base64,${props.self.picByte}`} /> */}
+			<button onClick={fileUploadHandler}>upload dat mf</button>
+			{props.data.picByte && <img src={`data:image/jpg/png;base64,${props.data.picByte}`} />}
 		</div>
 	);
 };

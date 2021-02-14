@@ -16,7 +16,6 @@ export const getJobs = (setLoading, setPosts, field, filteroptions, setTotalPage
 			setPosts(res.data.content);
 			setLoading(false);
 			setTotalPages(res.data.totalPages);
-			console.log(res.data);
 		})
 		.catch((err) => console.log(err.res));
 };
