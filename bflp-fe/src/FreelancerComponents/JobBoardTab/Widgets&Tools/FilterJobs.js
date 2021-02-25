@@ -71,7 +71,7 @@ export const FilterJobs = ({ setFilteroptions, filteroptions }) => {
 					setGoGray(!goGray);
 				}}
 			>
-				<p>Category Filter</p>
+				{specs.length >= 1 ? specs.length + ' selected' : <p>Category Filter</p>}
 			</div>
 			<div className={openfilter ? 'filter-options' : 'nofilterop'}>
 				<div className="filter-header">

@@ -37,11 +37,23 @@
 
 .show-dropdown {
 	position: absolute;
-	height: 10rem;
-	width: 10rem;
+	border: 2px solid rgba(153, 153, 153, 0.479);
+	border-radius: 8px;
+	height: 9rem;
+	width: 12rem;
 	top: 12rem;
 	background-color: #ffffff;
 	z-index: 100;
+	transform: translate(20px, -75px);
+}
+
+.sort-rows {
+	padding: 9px;
+}
+
+.sort-rows:hover {
+	background-color: rgba(95, 95, 95, 0.5);
+	transition: 400ms;
 }
 
 .hide-dropdown {
@@ -521,7 +533,7 @@ input[type='number'] {
 	outline: none;
 }
 
-.footb:hover{
+.footb:hover {
 	filter: brightness(70%);
 }
 

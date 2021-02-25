@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { axiosWithAuth } from './axiosWIthAuth';
 
-export default function PrivateRouteCustomer({ props, component: Component, ...rest }) {
+export default function PrivateRouteAdmin({ props, component: Component, ...rest }) {
 	const [userData, setUserData] = useState(null);
 
 	const getMyinfo = async () => {
@@ -24,7 +24,7 @@ export default function PrivateRouteCustomer({ props, component: Component, ...r
 				<Route
 					{...rest}
 					render={() => {
-						if (localStorage.getItem('token') && userData.locked_role === 'customer')
+						if (localStorage.getItem('token') && userData.locked_role === 'admin')
 							return <Component data={userData} />;
 						else {
 							return <Redirect to="/login" />;

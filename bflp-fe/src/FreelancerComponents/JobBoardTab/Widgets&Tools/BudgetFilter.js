@@ -30,17 +30,6 @@ export const BudgetFilter = ({ setFilteroptions, filteroptions }) => {
 
 	return (
 		<div className="filter">
-			{budgetfilter && (
-				<div
-					onClick={() => {
-						setBudgetFilter(false);
-					}}
-					className="screen-overlay"
-				>
-					{' '}
-				</div>
-			)}
-
 			<div
 				className="price-button"
 				onClick={() => {

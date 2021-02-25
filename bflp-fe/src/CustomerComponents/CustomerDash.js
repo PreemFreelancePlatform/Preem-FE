@@ -15,6 +15,8 @@ lets figure out all the stuff your going to bae able to do here
 */
 
 export const CustomerDash = (props) => {
+
+	console.log(props)
 	const [tabIndex, setTabIndex] = useState(0);
 
 	return (

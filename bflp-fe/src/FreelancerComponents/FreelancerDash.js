@@ -14,7 +14,6 @@ import { Settings } from './SettingsTab/Settings';
 import { Home } from './HomeTab/Home';
 import { Communication } from '../DeprecatedComponents/Communication';
 
-
 export const FreelancerDash = (props) => {
 	const tabText = ['Dashboard', 'JobBoard', 'Messages', 'Settings'];
 	const [tabList, setListTabs] = useState([
@@ -25,16 +24,15 @@ export const FreelancerDash = (props) => {
 	]);
 	const tabs = {
 		0: <Home />,
-		1: <JobBoard category={props.data.category}/>,
+		1: <JobBoard category={props.data.category} />,
 		2: <Communication />,
 		3: <Settings data={props.data} />,
 	};
-	const [activeTab, setActiveTab] = useState(1);
+	const [activeTab, setActiveTab] = useState(3);
 	const [hamburgerMenu, setHamburgerMenu] = useState(false);
 	const displayTab = tabs[activeTab];
-	console.log(props)
+	console.log(props);
 
-	
 	return (
 		<div>
 			<div className="topnavvy">
@@ -44,8 +42,7 @@ export const FreelancerDash = (props) => {
 					onClick={() => setHamburgerMenu(!hamburgerMenu)}
 				/>
 				<div className="mainlogo">
-					<Logo />
-					<span>preem</span>
+					<span>Logo</span>
 				</div>
 
 				<div className="navright">

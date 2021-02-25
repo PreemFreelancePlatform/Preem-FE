@@ -19,12 +19,13 @@ export const SortJobs = ({ sortby, setSortby }) => {
 			<ul className={open ? 'show-dropdown' : 'hide-dropdown'}>
 				{arr.map((item, index) => (
 					<li
+						className="sort-rows"
 						onClick={() => {
 							handleClick(item);
 						}}
 						key={index}
 					>
-						{sortby === item ? '' : item}
+						{item}
 					</li>
 				))}
 			</ul>

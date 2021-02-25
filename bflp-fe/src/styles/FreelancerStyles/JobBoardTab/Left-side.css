@@ -1,6 +1,6 @@
 .jobBoard {
 	display: flex;
-	height: 100vh;
+	height: 96vh;
 	animation: fadein ease 400ms;
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
@@ -19,7 +19,6 @@
 
 .leftside {
 	width: 76%;
-	margin-top: 3rem;
 	overflow-y: auto;
 	display: flex;
 	flex-direction: column;

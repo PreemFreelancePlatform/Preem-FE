@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { axiosWithAuth } from '../../Utils/axiosWIthAuth';
+import '../../styles/FreelancerStyles/SettingsTab/accountSettings.css';
 
 export const Settings = (props) => {
 	const [file, setFile] = useState({
@@ -29,17 +30,48 @@ export const Settings = (props) => {
 	};
 
 	return (
-		<div className="contentContainer">
-			<div className="imgcontainer">
-				<div className="imgshape">
-					<label htmlFor="fileUpload">
-						<img className="okk" src={file.preview ? file.preview : null} />
+		// <div className="contentContainer">
+		// 	<div className="imgcontainer">
+		// 		<div className="imgshape">
+		//
+		// 		</div>
+		// 		<input type="file" id="fileUpload" onChange={handleChange} />
+		// 	</div>
+		// 	<button onClick={fileUploadHandler}>upload dat mf</button>
+		// </div>
+
+		<div className="account-settings-cont">
+			<h4 className="AS-header">Account Settings</h4>
+
+			<span>Profile</span>
+			<div className="profile-content">
+				<div className="profile-picture">
+					{props.data.picByte && (
+						<img
+							className="actual-img"
+							src={file.preview ? file.preview : `data:image/jpg/png;base64,${props.data.picByte}`}
+						/>
+					)}
+				</div>
+				<div className="username">
+					<span>Username</span>
+					<h5>{props.data.username}</h5>
+					<label className="photochange" htmlFor="fileUpload">
+						<input type="file" id="fileUpload" onChange={handleChange} />
+						Change Photo
 					</label>
 				</div>
-				<input type="file" id="fileUpload" onChange={handleChange} />
 			</div>
-			<button onClick={fileUploadHandler}>upload dat mf</button>
-			{props.data.picByte && <img src={`data:image/jpg/png;base64,${props.data.picByte}`} />}
+
+			<span>Security</span>
+			<div className="security-content"></div>
+
+			<span>Notifications</span>
+			<div className="notifications-content"></div>
+
+			<div className="billing">
+				<div className="billing-content"></div>
+			</div>
 		</div>
 	);
 };
