@@ -8,8 +8,6 @@ export const Settings = (props) => {
 		raw: '',
 	});
 
-	console.log(props.data);
-
 	const handleChange = (e) => {
 		if (e.target.files.length) {
 			setFile({
@@ -23,7 +21,7 @@ export const Settings = (props) => {
 		const fd = new FormData();
 		fd.append('imageFile', file.raw);
 		axiosWithAuth()
-			.post(`http://localhost:2019/freelancer/upload/${props.data.id}`, fd)
+			.patch(`http://localhost:2019/customer/upload/1`, fd)
 			.then((res) => {
 				console.log(res.data);
 			});
@@ -46,12 +44,10 @@ export const Settings = (props) => {
 			<span>Profile</span>
 			<div className="profile-content">
 				<div className="profile-picture">
-					{props.data.picByte && (
-						<img
-							className="actual-img"
-							src={file.preview ? file.preview : `data:image/jpg/png;base64,${props.data.picByte}`}
-						/>
-					)}
+					<img
+						className="actual-img"
+						src={file.preview ? file.preview : `data:image/jpg/png;base64,${props.data.picByte}`}
+					/>
 				</div>
 				<div className="username">
 					<span>Username</span>
@@ -60,6 +56,15 @@ export const Settings = (props) => {
 						<input type="file" id="fileUpload" onChange={handleChange} />
 						Change Photo
 					</label>
+
+					<button
+						type="submit"
+						onClick={() => {
+							fileUploadHandler();
+						}}
+					>
+						upload dat shit
+					</button>
 				</div>
 			</div>
 

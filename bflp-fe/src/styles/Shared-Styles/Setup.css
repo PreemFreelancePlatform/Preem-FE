@@ -1,0 +1,172 @@
+@keyframes fadeinout {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes fadein {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes slide {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-610px);
+	}
+}
+
+.setup-cont {
+	height: 98vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.permabox {
+	position: absolute;
+	border: 2px solid rgba(0, 0, 0, 0.534);
+	height: 500px;
+	overflow: hidden;
+	border-radius: 10px;
+	width: 550px;
+	padding: 30px;
+	animation: fadein 1s linear forwards;
+}
+
+.preemlogo-s {
+	display: block;
+	width: 250px;
+	margin: auto;
+}
+
+.welcomeanim {
+	font-size: 150px;
+	font-weight: 200;
+	text-align: center;
+	transform: translateY(-100px);
+	animation: fadeinout 4s linear forwards;
+}
+
+.sec-form {
+	height: 450px;
+	width: 550px;
+}
+
+.snippet {
+	border: 2px dashed gray;
+	height: 400px;
+}
+
+.question {
+	height: 40px;
+	border-radius: 2px;
+	border: 2px solid rgba(0, 0, 0, 0.13);
+	width: 90%;
+	padding: 5px;
+}
+
+.answer {
+	height: 20px;
+	width: 60%;
+	border-radius: 2px;
+	border: 2px solid rgba(0, 0, 0, 0.13);
+	padding: 8px;
+	font-weight: 400;
+}
+
+.formys {
+	margin-top: 30px;
+	height: 210px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.infos {
+	margin-top: 20px;
+}
+
+.infos span {
+	font-size: 50px;
+	font-weight: 200;
+}
+
+.infos p {
+	font-weight: 300;
+}
+
+.save-button {
+	width: 25%;
+	padding: 10px;
+	margin-top: 10px;
+	transform: translateX(400px);
+}
+
+.slideybox {
+	width: 1162px;
+	display: flex;
+}
+
+.slideybox-anim {
+	width: 1162px;
+	display: flex;
+	animation: slide 500ms ease forwards;
+}
+
+.box1 {
+	height: 400px;
+	width: 555px;
+	transform: translateX(55px);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.picboxxy {
+	width: 250px;
+	height: 250px;
+	object-fit: cover;
+	border-radius: 100%;
+}
+
+.clicky {
+	display: block;
+	height: 300px;
+	width: 450px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgb(243, 244, 248);
+	border-radius: 10%;
+}
+
+.clicky input {
+	display: none;
+}
+
+.pic-button {
+	padding: 10px;
+	width: 250px;
+	transform: translateY(20px);
+}
+
+.goaway {
+	display: none;
+}

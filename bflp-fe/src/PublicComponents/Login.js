@@ -1,76 +1,70 @@
 import Axios from 'axios';
+import logo from '../aLOGOPREEM/LOGOpngFiles/PreemLogo-03.png';
 import React, { useState } from 'react';
-import { doLogin } from '../HelperFunctions/NetworkRequests';
-import { Redirect } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { ReactComponent as Check } from '../assets/done-24px.svg';
+import { login } from '../HelperFunctions/NetworkRequests';
+import { Link, Redirect } from 'react-router-dom';
 import '../styles/Shared-Styles/Login.css';
 
 export const Login = () => {
+	const { register, handleSubmit } = useForm();
+	const [loading, setLoading] = useState();
 	const [badCreds, setBadCreds] = useState(false);
-	const [dispatch, setDispatch] = useState(false);
-	const [user, setUser] = useState();
-	const [creds, setCreds] = useState({
-		username: '',
-		password: '',
-	});
+	const [check, setCheck] = useState(false);
 
-	const handleChange = (e) => {
-		setCreds({
-			...creds,
-			[e.target.name]: e.target.value,
-		});
+	const onSubmit = (data) => {
+		login(data, setBadCreds, setLoading);
 	};
-
-	const handleSubmit = (e) => {
-		doLogin(creds, setUser, setDispatch, setBadCreds);
-	};
-
-	if (dispatch) {
-		switch (user.locked_role) {
-			case 'customer':
-				return <Redirect to={`/customer/${user.firstname}`} />;
-
-			case 'freelancer':
-				return <Redirect to={`/freelancer/${user.firstname}`} />;
-
-			case 'admin':
-				return <Redirect to={`/admin/${user.firstname}`} />;
-
-			default:
-				return <Redirect to="/login" />;
-		}
-	}
 
 	return (
-		<div className="fakebody">
-			<div className="form-box">
-				{badCreds && <span>INCORRECT USERNAME OR PASSWORD AYY</span>}
-				<form
-					onSubmit={(e) => {
-						handleSubmit();
-						e.preventDefault();
-					}}
-				>
-					<input
-						type="text"
-						id="login"
-						className="fadeIn second"
-						name="username"
-						value={creds.username}
-						onChange={handleChange}
-						placeholder="username"
-					/>
-					<input
-						type="password"
-						name="password"
-						id="password"
-						value={creds.password}
-						onChange={handleChange}
-						className="fadeIn third"
-						placeholder="password"
-					/>
-					<input type="submit" className="fadeIn fourth" value="Log In" />
-				</form>
-				<div id="formFooter"></div>\
+		<div className="main-login-cont">
+			{badCreds && <span className="bad-creds">password or email incorrect</span>}
+			<div className="box-header">
+				<img className="preemlogo" src={logo} />
+				<p>Welcome back! Please log in to your account</p>
+			</div>
+			<form onSubmit={handleSubmit(onSubmit)} className="forms-login">
+				<span className="placeholder">Email Address</span>
+				<input
+					className="loginforminput"
+					type="text"
+					name="email"
+					id="email"
+					ref={register({ required: true })}
+				/>
+				<span className="placeholder">Password</span>
+				<input
+					className="loginforminput"
+					type="password"
+					name="password"
+					id="password"
+					ref={register({ required: true })}
+				/>
+
+				<div className="login-buttons">
+					<input type="submit" className="login-button1" />
+
+					<Link to="/signup" type="button" className="login-button2">
+						Sign up
+					</Link>
+				</div>
+			</form>
+			<div className="stuff">
+				<div className="remember">
+					<div
+						className={check ? 'check-on' : 'check'}
+						onClick={() => {
+							setCheck(!check);
+						}}
+					>
+						<Check />
+					</div>
+					<span className="thetext">Remember me</span>
+				</div>
+				<Link to="/recovery" className="thetextF">
+					Forgot password?
+				</Link>
 			</div>
 		</div>
 	);

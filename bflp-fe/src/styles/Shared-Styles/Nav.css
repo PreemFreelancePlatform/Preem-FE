@@ -130,11 +130,6 @@
 	font-size: 1.5rem;
 }
 
-.mainlogo span {
-	transform: translateX(0.5rem);
-	font-family: 'Pacifico', cursive;
-}
-
 .navright {
 	width: 4%;
 	display: flex;
@@ -148,3 +143,4 @@
 	height: 35px;
 	width: 35px;
 }
+

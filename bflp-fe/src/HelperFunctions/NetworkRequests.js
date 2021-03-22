@@ -21,40 +21,43 @@ export const getJobs = (setLoading, setPosts, field, filteroptions, setTotalPage
 };
 
 // ----- sends the backend your auth token, backend returns who the token belongs to.
-export const getMyInfo = async (setUser) => {
-	await axiosWithAuth()
+export const getMyInfo = (setUser, setError, setLoading) => {
+	setLoading(true);
+	axiosWithAuth()
 		.get('http://localhost:2019/getmyinfo')
 		.then((res) => {
 			setUser(res.data);
+			setLoading(false);
 		})
-		.catch((err) => console.log(err.res));
+		.catch((err) => {
+			if (err.response) {
+				console.log(err.response);
+				setError(true);
+				setLoading(false);
+			}
+
+			if (err.request) {
+				console.log(err.request);
+				setError(true);
+				setLoading(false);
+			}
+		});
 };
 
 // ----- after logging in we ask who the user to get the users role, see Dispatch function in Login component.
-export const doLogin = (creds, setUser, setDispatch, setBadCreds) => {
-	Axios.post(
-		'http://localhost:2019/login',
-		`grant_type=password&username=${creds.username}&password=${creds.password}`,
-		{
-			headers: {
-				Authorization: `Basic ${btoa('clientid:clientsecret')}`,
-				'Content-Type': 'application/x-www-form-urlencoded',
-			},
-		}
-	)
+export const login = (data, setBadCreds, setLoading) => {
+	Axios.post('http://localhost:2019/login', `grant_type=password&username=${data.email}&password=${data.password}`, {
+		headers: {
+			Authorization: `Basic ${btoa('BZwilson-client:BZwilson-secret')}`,
+			'Content-Type': 'application/x-www-form-urlencoded',
+		},
+	})
 		.then((res) => {
 			localStorage.setItem('token', res.data.access_token);
-			return axiosWithAuth()
-				.get('http://localhost:2019/getmyinfo')
-				.then((res) => {
-					setUser(res.data);
-					setDispatch(true);
-				})
-				.catch((err) => {
-					console.log(err + 'getmyinfo failed');
-				});
+			setTimeout(function () {
+				window.location.replace(`/${data.email}`);
+			}, 1000);
 		})
-
 		.catch((err) => {
 			if (err.response) {
 				// client received an error response (5xx, 4xx)

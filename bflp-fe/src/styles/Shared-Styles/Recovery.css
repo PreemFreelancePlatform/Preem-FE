@@ -1,0 +1,109 @@
+.recovery-cont {
+	border: 2px solid rgba(0, 0, 0, 0.294);
+	width: 500px;
+	border-radius: 15px;
+	margin: 0 auto;
+	padding: 50px;
+	margin-top: 300px;
+	transition: 1s;
+}
+
+.recovery-form {
+	margin-top: 40px;
+}
+
+.emailinput {
+	height: 25px;
+	border-radius: 5px;
+	font-size: 1rem;
+	border: 2px solid rgba(0, 0, 0, 0.219);
+	padding: 10px;
+	margin-bottom: 10px;
+	width: 45%;
+}
+
+@keyframes boing {
+	0% {
+		transform: translateY(-250px);
+	}
+	100% {
+		transform: translateY(0px);
+	}
+}
+
+.security-questions {
+	display: flex;
+	flex-direction: column;
+	margin-top: 30px;
+	animation: boing 800ms forwards;
+	animation-direction: alternate;
+}
+
+.security-questions span {
+	margin-bottom: 20px;
+}
+
+.security-questions input {
+	height: 25px;
+	border-radius: 5px;
+	font-size: 1rem;
+	border: 2px solid rgba(0, 0, 0, 0.219);
+	padding: 10px;
+	margin-bottom: 10px;
+	width: 90%;
+}
+
+.placeholderr {
+	font-size: 15px;
+	font-weight: 700;
+	color: rgba(0, 0, 0, 0.657);
+	transform: translate(0px, 10px);
+}
+
+.loginforminput1:focus {
+	outline: none !important;
+	border-color: rgba(30, 143, 255, 0.568);
+	transition: 120ms;
+}
+
+.idkanymore {
+	margin: auto;
+	font-size: 25px;
+}
+
+.bademail {
+	color: red;
+	font-size: 10px;
+	width: 5px;
+	line-height: 2px;
+}
+
+.errorbox {
+	position: absolute;
+	transform: translateY(-80px);
+}
+
+.submit-answers {
+	margin-top: 20px;
+	text-align: center;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.spinner {
+	display: block;
+	transform: translate(50px, 40px);
+	border: 0.2em solid rgba(0, 0, 0, 0.1);
+	border-top: 0.2em solid #767676;
+	border-radius: 50%;
+	width: 5rem;
+	height: 5rem;
+	animation: spin 0.6s linear infinite;
+}

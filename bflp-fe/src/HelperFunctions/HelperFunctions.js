@@ -95,7 +95,6 @@ export const getSubList = (category) => {
 				'fashion design',
 				'graphic design',
 				'music composition',
-				'musician',
 				'video editing',
 				'voice acting',
 			];
