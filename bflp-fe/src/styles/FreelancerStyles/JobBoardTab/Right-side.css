@@ -5,13 +5,8 @@
 	overflow: scroll;
 }
 
-.circular {
-	width: 50px;
-	height: 50px;
-	border-radius: 50%;
-	position: relative;
-	overflow: hidden;
-	border: 1px solid rgba(61, 61, 61, 0.13);
+.rightside::-webkit-scrollbar {
+	display: none;
 }
 
 .icon-circle {
@@ -24,16 +19,11 @@
 	justify-content: center;
 }
 
-.circular img {
-	width: auto;
-	height: auto;
-	position: absolute;
-	left: 10px;
-	top: 60px;
-	-webkit-transform: translate(-50%, -50%);
-	-moz-transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
+.clientimg {
+	width: 50px;
+	height: 50px;
+	object-fit: cover;
+	border-radius: 100%;
 }
 
 .side-bar {
@@ -89,7 +79,7 @@
 	color: #28282fd7;
 	line-height: 40px;
 	font-size: 1.5rem;
-	font-family: Montserrat;
+	font-weight: 400;
 }
 
 .side-id {

@@ -3,11 +3,7 @@ import { daysBetween } from '../../../HelperFunctions/HelperFunctions';
 import '../../../styles/FreelancerStyles/JobBoardTab/job-color-code.css';
 import { colorcode } from '../Widgets&Tools/colorcode';
 
-export const Job = ({ jobs, loading, handleactive, active }) => {
-	// write fucntion that only lets you apply to something once
-	/*  
-	|person posting|color coded stack(website)|How long ago was posted|		
-	*/
+export const Job = ({ jobs, handleactive, active }) => {
 
 	const formatDate = (time) => {
 		const todaysdate = new Date();
@@ -41,7 +37,7 @@ export const Job = ({ jobs, loading, handleactive, active }) => {
 						<span>{item.task}</span>
 					</li>
 					<li className="row-container2">
-						<span className={colorcode[item.specialization]}>{item.specialization}</span>
+						<span className={colorcode[item.tags]}>{item.tags}</span>
 					</li>
 					<li className="row-container3">
 						<span>{formatDate(item.postdate)}</span>

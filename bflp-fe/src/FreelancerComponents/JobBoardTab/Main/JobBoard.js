@@ -1,25 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { axiosWithAuth } from '../../../Utils/axiosWIthAuth';
 import '../../../styles/FreelancerStyles/JobBoardTab/Left-side.css';
 import '../../../styles/FreelancerStyles/JobBoardTab/Right-side.css';
 import { Job } from './Job';
 import { JobSideBar } from './JobSideBar';
-import {sortem} from '../../../HelperFunctions/HelperFunctions';
-import {getJobs} from '../../../HelperFunctions/NetworkRequests'
+import { sortOnLoad } from '../../../HelperFunctions/HelperFunctions';
 import { JobHeader } from './JobHeader';
-import { FilterJobs } from '../Widgets&Tools/FilterJobs';
 import { Pagination } from '../Widgets&Tools/Pagination';
 
 export const JobBoard = (props) => {
-	const [loading, setLoading] = useState(false);
-	const [posts, setPosts] = useState([]);
 	const [activeJob, setActiveJob] = useState(0);
-	const [selection, setSelection] = useState(props.category);
-	const [sortBy, setSortBy] = useState('None');
-	const [totalPages, setTotalPages] = useState();
+	const [sortBy, setSortBy] = useState('none');
+	const [page, setPage] = useState(0);
+
+	const [request, setRequest] = useState({
+		posts: [],
+		loading: true,
+		totalPages: 0,
+	});
 	const [filteroptions, setFilteroptions] = useState({
-		field: '',
-		specialization: [],
+		category: [...props.data.categories],
+		tags: [],
 		min: '',
 		max: '',
 	});
@@ -28,26 +29,42 @@ export const JobBoard = (props) => {
 		setActiveJob(index);
 	};
 
+	sortOnLoad(sortBy, request.posts);
+
 	useEffect(() => {
-		getJobs(setLoading, setPosts, selection, filteroptions, setTotalPages);
-	}, [selection, filteroptions]);
+		axiosWithAuth()
+			.get(
+				`http://localhost:2019/customer/post/filter?category=${filteroptions.category}&tags=${''}&min=${
+					filteroptions.min
+				}&max=${filteroptions.max}&page=${0}`
+			)
+			.then((res) => {
+				setRequest({
+					posts: res.data.content,
+					loading: false,
+					totalPages: res.data.totalPages,
+				});
+			})
+			.catch((err) => console.log(err.res));
+	}, [page]);
 
-	sortem(sortBy, posts);
-	const PanelData = posts[activeJob];
+	const PanelData = request.posts[activeJob];
 
-	if (totalPages && PanelData && !loading) {
+	console.log(request);
+
+	if (request.posts.length) {
 		return (
 			<div className="jobBoard">
 				<div className="leftside">
 					<JobHeader
 						sortby={sortBy}
 						setSortby={setSortBy}
-						totaljobs={posts.length}
+						totaljobs={request.posts.length}
 						filteroptions={filteroptions}
 						setFilteroptions={setFilteroptions}
 					/>
-					<Job jobs={posts} handleactive={handleActive} active={activeJob} />
-					<Pagination totalPages={totalPages} />
+					<Job jobs={request.posts} handleactive={handleActive} active={activeJob} />
+					{/* <Pagination setPage={setPage} page={page} /> */}
 				</div>
 				<div className="rightside">
 					<JobSideBar data={PanelData} />
@@ -58,3 +75,7 @@ export const JobBoard = (props) => {
 		return <h2>Loading...</h2>;
 	}
 };
+
+{
+	/* <Pagination totalPages={totalPages} /> */
+}

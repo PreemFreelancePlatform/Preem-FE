@@ -1,0 +1,33 @@
+			{/*<div className="topnavvy">*/}
+			{/*	<img*/}
+			{/*		className="icon"*/}
+			{/*		src={hamburgerMenu ? closemenu : openmenu}*/}
+			{/*		onClick={() => setHamburgerMenu(!hamburgerMenu)}*/}
+			{/*	/>*/}
+			{/*	<div className="mainlogo">*/}
+			{/*		<span>Logo</span>*/}
+			{/*	</div>*/}
+
+			{/*	<div className="navright">*/}
+			{/*		<Notifications />*/}
+			{/*		<Account />*/}
+			{/*	</div>*/}
+			{/*</div>*/}
+			{/*<nav className={hamburgerMenu ? 'navbar-wide' : 'navbar'}>*/}
+			{/*	<ul className="navbar-nav">*/}
+			{/*		{tabList.map((tab, index) => (*/}
+			{/*			<li*/}
+			{/*				className={activeTab === index ? 'active-tab' : 'nav-item'}*/}
+			{/*				key={index}*/}
+			{/*				onClick={() => {*/}
+			{/*					setActiveTab(index);*/}
+			{/*				}}*/}
+			{/*			>*/}
+			{/*				<div className="nav-link">*/}
+			{/*					{tab}*/}
+			{/*					<span className={hamburgerMenu ? 'show-text' : 'hide-text'}>{tabText[index]}</span>*/}
+			{/*				</div>*/}
+			{/*			</li>*/}
+			{/*		))}*/}
+			{/*	</ul>*/}
+			{/*</nav>*/}

@@ -9,8 +9,12 @@ export default function PrivateRoute({ props, component1: Component1, component2
 	const [error, setError] = useState(false);
 
 	useEffect(() => {
-		getMyInfo(setUser, setError, setloading);
+		setTimeout(function () {
+			getMyInfo(setUser, setError, setloading);
+		}, 5000);
 	}, []);
+
+	console.log('request sent');
 
 	if (loading === false) {
 		return (

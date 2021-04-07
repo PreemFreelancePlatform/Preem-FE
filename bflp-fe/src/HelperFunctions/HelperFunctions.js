@@ -11,7 +11,7 @@ export const daysBetween = (StartDate, EndDate, setTime) => {
 	return (start - end) / oneDay;
 };
 
-export const sortem = (sortby, posts) => {
+export const sortOnLoad = (sortby, posts) => {
 	switch (sortby) {
 		case 'Newest':
 			return posts.sort(function (a, b) {

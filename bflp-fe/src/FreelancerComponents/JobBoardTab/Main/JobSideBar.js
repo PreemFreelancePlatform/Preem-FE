@@ -11,9 +11,7 @@ export const JobSideBar = ({ data }) => {
 				<h3 className="side-task">{data.task}</h3>
 				<div className="side-info">
 					<div className="side-info-profile">
-						<div className="circular">
-							<img src={`data:image/jpg/png;base64,${data.customer.picByte}`} />
-						</div>
+						<img className="clientimg" src={`data:image/jpg/png;base64,${data.customer.picByte}`} />
 						<div className="side-info-name">
 							<span className="rq">Requested by</span>
 							<span>Duck Duckerson</span>

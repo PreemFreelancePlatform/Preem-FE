@@ -22,7 +22,9 @@ function App() {
 				<Route path="/recovery" component={Recovery} />
 				<Route path="/signup" component={Signup} />
 				<PrivateRoute path="/:email" component1={FreelancerDash} component2={CustomerDash} component3={Setup} />
-				{/* s				<PrivateRouteAdmin path="/admin/:username" component={AdminDash} /> */}
+				<PrivateRoute path="/:email/apply"  />
+
+				{/* { s				<PrivateRouteAdmin path="/admin/:username" component={AdminDash} /> */}
 			</Switch>
 		</Router>
 	);
