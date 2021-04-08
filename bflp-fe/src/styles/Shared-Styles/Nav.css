@@ -1,6 +1,6 @@
 .nav-box {
 	background-color: rgb(34, 35, 39);
-	width: 100px;
+	width: 7%;
 	height: 100vh;
 	display: flex;
 	justify-content: center;
@@ -9,7 +9,6 @@
 
 .icon {
 	height: 25px;
-	width: 25px;
 	fill: rgb(133, 133, 133);
 }
 

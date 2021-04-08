@@ -1,3 +1,13 @@
+
+.make-center{
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
 .box-header {
 	width: 300px;
 }
@@ -17,13 +27,11 @@
 	border: 3px solid rgba(131, 144, 155, 0.239);
 	width: 350px;
 	border-radius: 15px;
-	margin: 0 auto;
 	padding: 50px;
 	height: 450px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	transform: translateY(50%);
 }
 
 .forms-login {
