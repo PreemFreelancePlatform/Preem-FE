@@ -11,7 +11,7 @@ export default function PrivateRoute({ props, component1: Component1, component2
 	useEffect(() => {
 		setTimeout(function () {
 			getMyInfo(setUser, setError, setloading);
-		}, 5000);
+		}, 100);
 	}, []);
 
 	console.log('request sent');

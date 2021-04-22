@@ -1,15 +1,16 @@
 .jobBoard {
 	display: flex;
+	align-items: center;
 	animation: fadein ease 400ms;
+	justify-content: space-evenly;
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
-	margin-top: 3.5rem;
-	width: 100%;
+	width: 96%;
+	border: 1px solid green;
 	background: #f6f7f9;
-	height: 100%;
-
+	height: 100vh;
 	/* 
 	width: 100vw; */
 }
@@ -24,21 +25,18 @@
 }
 
 .leftside {
-	width: 76%;
-	overflow-y: auto;
+	width: 68%;
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
+	height: 90%;
 }
 
-.leftside::-webkit-scrollbar {
-	width: 0.3rem;
+.leftside-content::-webkit-scrollbar {
+	width: 0.2rem;
 }
 
-.leftside::-webkit-scrollbar-track {
-	background: #9c9c9c;
-}
-
-.leftside::-webkit-scrollbar-thumb {
+.leftside-content::-webkit-scrollbar-thumb {
 	background: #6649b8;
 }
 
@@ -64,11 +62,13 @@
 .leftside-content {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	padding: 20px;
+	height: 100%;
+	overflow-y: scroll;
 }
 
 .column-labels {
-	width: 96.2%;
+	margin: 5px;
 	padding: 1rem 0 1rem;
 	display: flex;
 	-moz-border-radius: 0px;
@@ -103,11 +103,11 @@
 
 .row {
 	display: flex;
+	align-items: center;
 	height: 100%;
 	font-size: 1.5rem;
-	padding: 0.6%;
-	width: 95%;
 	border-radius: 4px;
+	margin: 5px;
 	background-color: white;
 	border: 1px solid #ebebef;
 	transition: 200ms;
@@ -115,11 +115,11 @@
 
 .row-active {
 	display: flex;
+	align-items: center;
 	height: 100%;
 	font-size: 1.5rem;
-	padding: 0.6% 0 0.6% 1%;
-	width: 95.2%;
 	border-radius: 4px;
+	margin: 5px;
 	background-color: rgb(220, 239, 248);
 	border: 1px solid #ebebef;
 	transition: 200ms;

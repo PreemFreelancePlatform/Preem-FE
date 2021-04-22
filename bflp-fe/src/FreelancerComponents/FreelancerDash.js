@@ -29,7 +29,7 @@ export const FreelancerDash = (props) => {
 	const email = useParams();
 	const text = ['Dashboard', 'Jobs', 'Messaging', 'Settings', 'Tags'];
 	const [hamburgerMenu, setHamburgerMenu] = useState(false);
-	const [activeTab, setActiveTab] = useState(4);
+	const [activeTab, setActiveTab] = useState(1);
 
 	// find better way to do this
 	const tabs = {
@@ -72,8 +72,6 @@ export const FreelancerDash = (props) => {
 			</div>
 
 			<div className="top-nav">
-				<Openmenu className={'hamburger'} />
-				<img src={logo} className="nav-logo" />
 				<div className="userbox">
 					<Bell className="notifs" />
 					<Cog2 className="notifs" />
@@ -84,8 +82,7 @@ export const FreelancerDash = (props) => {
 					</div>
 				</div>
 			</div>
-
-			<div className="main">{displayTab}</div>
+			{displayTab}
 		</div>
 	);
 };

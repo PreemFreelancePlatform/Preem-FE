@@ -48,7 +48,7 @@ export const getMyInfo = (setUser, setError, setLoading) => {
 export const login = (data, setBadCreds, setLoading) => {
 	Axios.post('http://localhost:2019/login', `grant_type=password&username=${data.email}&password=${data.password}`, {
 		headers: {
-			Authorization: `Basic ${btoa('OAUTHCLIENTID:OAUTHCLIENTSECRET')}`,
+			Authorization: `Basic ${btoa('BZwilson-client:BZwilson-secret')}`,
 			'Content-Type': 'application/x-www-form-urlencoded',
 		},
 	})

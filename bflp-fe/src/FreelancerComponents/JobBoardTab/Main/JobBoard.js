@@ -4,20 +4,23 @@ import '../../../styles/FreelancerStyles/JobBoardTab/Left-side.css';
 import '../../../styles/FreelancerStyles/JobBoardTab/Right-side.css';
 import { Job } from './Job';
 import { JobSideBar } from './JobSideBar';
-import { sortOnLoad } from '../../../HelperFunctions/HelperFunctions';
+import { sortOnLoad, UpdateOnResize } from '../../../HelperFunctions/HelperFunctions';
 import { JobHeader } from './JobHeader';
 import { Pagination } from '../Widgets&Tools/Pagination';
 
 export const JobBoard = (props) => {
 	const [activeJob, setActiveJob] = useState(0);
 	const [sortBy, setSortBy] = useState('none');
-	const [page, setPage] = useState(0);
+	const [view, setView] = useState('row');
+	const [height, setHeight] = useState();
+	const [pageSize, setPagesize] = useState(10);
 
 	const [request, setRequest] = useState({
 		posts: [],
 		loading: true,
 		totalPages: 0,
 	});
+
 	const [filteroptions, setFilteroptions] = useState({
 		category: [...props.data.categories],
 		tags: [],
@@ -31,12 +34,27 @@ export const JobBoard = (props) => {
 
 	sortOnLoad(sortBy, request.posts);
 
+	window.addEventListener('resize', () => {
+		UpdateOnResize(setPagesize);
+	});
+
+	const applyToPost = (postid) => {
+		axiosWithAuth()
+			.post(`http://localhost:2019/freelancer/${props.data.freelancerid}/post/${postid}`)
+			.then((res) => {
+				console.log(res);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	};
+
 	useEffect(() => {
 		axiosWithAuth()
 			.get(
 				`http://localhost:2019/customer/post/filter?category=${filteroptions.category}&tags=${''}&min=${
 					filteroptions.min
-				}&max=${filteroptions.max}&page=${0}`
+				}&max=${filteroptions.max}&page=${0}&size=${pageSize}`
 			)
 			.then((res) => {
 				setRequest({
@@ -46,11 +64,9 @@ export const JobBoard = (props) => {
 				});
 			})
 			.catch((err) => console.log(err.res));
-	}, [page]);
+	}, [pageSize]);
 
 	const PanelData = request.posts[activeJob];
-
-	console.log(request);
 
 	if (request.posts.length) {
 		return (
@@ -62,13 +78,13 @@ export const JobBoard = (props) => {
 						totaljobs={request.posts.length}
 						filteroptions={filteroptions}
 						setFilteroptions={setFilteroptions}
+						setView={setView}
+						view={view}
 					/>
 					<Job jobs={request.posts} handleactive={handleActive} active={activeJob} />
 					{/* <Pagination setPage={setPage} page={page} /> */}
 				</div>
-				<div className="rightside">
-					<JobSideBar data={PanelData} />
-				</div>
+				<JobSideBar applyToPost={applyToPost} data={PanelData} />
 			</div>
 		);
 	} else {

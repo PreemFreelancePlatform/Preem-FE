@@ -129,3 +129,10 @@ table {
 body::-webkit-scrollbar {
 	display: none;
 }
+
+body {
+	background: #f6f7f9;
+
+	overflow-y: hidden;
+	height: 100%;
+}

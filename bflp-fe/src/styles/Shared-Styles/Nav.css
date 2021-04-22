@@ -1,10 +1,12 @@
 .nav-box {
 	background-color: rgb(34, 35, 39);
-	width: 7%;
+	width: 4%;
+	min-width: 70px;
 	height: 100vh;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
+	z-index: 1;
 }
 
 .icon {
@@ -34,37 +36,22 @@
 	transform: translateY(-150px);
 }
 
-.nav-logo {
-	width: 120px;
-	position: absolute;
-	left: 50%;
-}
-
-.hamburger {
-	height: 40px;
-	width: 40px;
-	fill: rgb(115, 115, 115);
-	transform: translateX(30px);
-}
-
 .dash-flex {
 	display: flex;
 }
 
 .top-nav {
+	right: 0;
 	position: fixed;
-	width: 100%;
+	width: 20%;
 	height: 3.5rem;
-	display: flex;
-	align-items: center;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.075);
+	border: 1px solid black;
 }
 
 .userbox {
 	display: flex;
 	align-items: center;
 	height: 100%;
-	margin-left: auto;
 }
 
 .notifs {

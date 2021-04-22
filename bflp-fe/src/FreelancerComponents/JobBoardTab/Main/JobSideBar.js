@@ -2,8 +2,9 @@ import React from 'react';
 import calendar from '../../../assets/calendar_today-24px.svg';
 import moneysign from '../../../assets/local_atm-24px.svg';
 import summary from '../../../assets/format_align_left-24px.svg';
+import { axiosWithAuth } from '../../../Utils/axiosWIthAuth';
 
-export const JobSideBar = ({ data }) => {
+export const JobSideBar = ({ applyToPost, data }) => {
 	return (
 		<div className="side-bar">
 			<div className="side-header">
@@ -41,7 +42,14 @@ export const JobSideBar = ({ data }) => {
 					</div>
 					<p>{data.description}</p>
 				</div>
-				<button className="submit-button">Submit Profile</button>
+				<button
+					onClick={() => {
+						applyToPost(data.postid);
+					}}
+					className="submit-button"
+				>
+					Submit Profile
+				</button>
 			</div>
 		</div>
 	);

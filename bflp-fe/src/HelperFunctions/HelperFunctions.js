@@ -48,6 +48,24 @@ export const sortOnLoad = (sortby, posts) => {
 	}
 };
 
+export const UpdateOnResize = (setValue) => {
+	if (window.innerHeight > 1280 && window.innerHeight <= 1600) {
+		setValue(13);
+	}
+	if (window.innerHeight >= 800 && window.innerHeight <= 1280) {
+		setValue(9);
+	}
+};
+
+// export const getInitialValue = () => {
+// 	if (window.innerHeight > 1280 && window.innerHeight <= 1600) {
+// 		setPagesize(15);
+// 	}
+// 	if (window.innerHeight >= 800 && window.innerHeight <= 1280) {
+// 		setPagesize(8);
+// 	}
+// };
+
 export const getSubList = (category) => {
 	switch (category) {
 		case 'Web Development':
