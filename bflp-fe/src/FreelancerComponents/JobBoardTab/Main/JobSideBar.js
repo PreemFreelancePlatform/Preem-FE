@@ -45,7 +45,8 @@ export const JobSideBar = ({ applyToPost, data }) => {
 				<button
 					onClick={() => {
 						applyToPost(data.postid);
-					}}
+					}
+					}
 					className="submit-button"
 				>
 					Submit Profile

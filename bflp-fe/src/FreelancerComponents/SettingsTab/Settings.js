@@ -52,7 +52,7 @@ export const Settings = (props) => {
 				<div className="settings-header">
 					<label className="edit-picture" htmlFor="fileUpload">
 						<input type="file" id="fileUpload" onChange={handleChange} />
-						<Edit />
+						{/* <Edit /> */}
 					</label>
 					<img
 						className="main-photo"
@@ -96,6 +96,13 @@ export const Settings = (props) => {
 						onChange={handleForm}
 					/>
 				</div>
+				<button
+					onClick={() => {
+						fileUploadHandler();
+					}}
+				>
+					upload
+				</button>
 			</div>
 		</div>
 	);

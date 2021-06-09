@@ -1,5 +1,5 @@
 import React from 'react';
-import { axiosWithAuth } from '../Utils/axiosWIthAuth';
+import { axiosWithAuth } from '../../Utils/axiosWIthAuth';
 import { FreelancerCard } from './FreelancerCard';
 
 export default class Browse extends React.Component {

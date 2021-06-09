@@ -1,0 +1,97 @@
+.homeTab {
+	border: 1px solid black;
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+}
+
+.idek {
+	margin-top: 4rem;
+	margin-left: 5rem;
+}
+
+.greet {
+	font-size: 50px;
+	font-weight: 300;
+}
+
+.yeet {
+	margin-top: 10px;
+	font-size: 20px;
+	color: rgba(92, 92, 92, 0.623);
+}
+
+.home-top {
+	border: 1px black;
+	margin-top: 2rem;
+	margin-left: 5rem;
+	width: 90vw;
+	display: flex;
+	height: 38vh;
+}
+
+.hometop-left {
+	display: flex;
+	flex-direction: column;
+	width: 55%;
+}
+
+.linechart-box {
+	background-color: white;
+	padding: 20px;
+	border-radius: 10px;
+	height: 62%;
+}
+
+.doughnut-chart {
+	height: 80%;
+	width: 100%;
+}
+
+.chart-header {
+	position: relative;
+	left: 40%;
+}
+
+.hometop-anas {
+	display: flex;
+	margin-top: auto;
+}
+
+.ana-1:first-child {
+	margin-left: 0px;
+}
+
+.ana-1 {
+	border: 1px solid rgba(202, 202, 202, 0.431);
+	height: 90px;
+	width: 210px;
+	margin-left: 35px;
+	background-color: white;
+	border-radius: 10px;
+}
+
+.ana-title {
+	color: rgba(65, 65, 65, 0.411);
+	transform: translate(25px, 20px);
+}
+
+.ana-int {
+	transform: translate(20px, 30px);
+	letter-spacing: 2px;
+	font-size: 30px;
+	color: rgb(11, 40, 136);
+}
+
+.hometop-right {
+	width: 20vw;
+	margin-left: 5rem;
+	background-color: white;
+	border-radius: 10px;
+}
+
+.home-bot {
+	border: 1px solid black;
+	width: 90vw;
+}

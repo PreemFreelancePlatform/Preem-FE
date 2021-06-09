@@ -6,14 +6,14 @@ import { ReactComponent as Dash } from '../assets/dashicons/home2.svg';
 import { ReactComponent as Posts } from '../assets/dashicons/posts.svg';
 import { ReactComponent as Chat } from '../assets/dashicons/chat1.svg';
 import { ReactComponent as Cog } from '../assets/dashicons/settings3.svg';
-import { ReactComponent as Cog2 } from '../assets/dashicons/settings2.svg';
+import { ReactComponent as Power } from '../assets/power.svg';
 import { ReactComponent as Tags } from '../assets/dashicons/apply1.svg';
 import { ReactComponent as Work } from '../assets/dashicons/office1.svg';
 import { ReactComponent as Bell } from '../assets/dashicons/bell1.svg';
 import { ReactComponent as Openmenu } from '../assets/menu-24px.svg';
 import { ReactComponent as Arrowdown } from '../assets/dashicons/arrowdown1.svg';
 
-import logo from '../aLOGOPREEM/LOGOpngFiles/PreemLogo-01.png';
+import lilguy from '../aLOGOPREEM/LOGOpngFiles/lilguy.png';
 
 import openmenu from '../assets/menu-24px.svg';
 import closemenu from '../assets/menu_open-24px.svg';
@@ -29,7 +29,7 @@ export const FreelancerDash = (props) => {
 	const email = useParams();
 	const text = ['Dashboard', 'Jobs', 'Messaging', 'Settings', 'Tags'];
 	const [hamburgerMenu, setHamburgerMenu] = useState(false);
-	const [activeTab, setActiveTab] = useState(1);
+	const [activeTab, setActiveTab] = useState(0);
 
 	// find better way to do this
 	const tabs = {
@@ -58,29 +58,28 @@ export const FreelancerDash = (props) => {
 	return (
 		<div className="dash-flex">
 			<div className="nav-box">
-				{tabList.map((tab, index) => (
-					<div
-						onClick={() => {
-							setActiveTab(index);
-						}}
-						className={'nav-items'}
-					>
-						{tab}
-						{/*<p>{text[index]}</p>*/}
-					</div>
-				))}
+				<div className="logobox">
+					<img className="lilguy" src={lilguy} />
+				</div>
+				<div className="absolute">
+					{tabList.map((tab, index) => (
+						<div
+							onClick={() => {
+								setActiveTab(index);
+							}}
+							className={'nav-items'}
+						>
+							{tab}
+							<p className={'nav-text'}>{text[index]}</p>
+						</div>
+					))}
+				</div>
 			</div>
 
 			<div className="top-nav">
-				<div className="userbox">
-					<Bell className="notifs" />
-					<Cog2 className="notifs" />
-					<div className="pic-name">
-						<img src={`data:image/jpg/png;base64,${props.data.picByte}`} className="nav-pic" />
-						<span>{`${props.data.firstname} ${props.data.lastname}`}</span>
-						<Arrowdown className="iconsmall" />
-					</div>
-				</div>
+				<img src={`data:image/jpg/png;base64,${props.data.picByte}`} className="nav-pic" />
+				{/* <span>{`${props.data.firstname} ${props.data.lastname}`}</span> */}
+				<Power className="iconsmall" />
 			</div>
 			{displayTab}
 		</div>

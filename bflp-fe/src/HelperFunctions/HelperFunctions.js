@@ -11,6 +11,45 @@ export const daysBetween = (StartDate, EndDate, setTime) => {
 	return (start - end) / oneDay;
 };
 
+const monthNames = [
+	'January',
+	'February',
+	'March',
+	'April',
+	'May',
+	'June',
+	'July',
+	'August',
+	'September',
+	'October',
+	'November',
+	'December',
+];
+
+export const nth = function (d) {
+	if (d > 3 && d < 21) return 'th';
+	switch (d % 10) {
+		case 1:
+			return 'st';
+		case 2:
+			return 'nd';
+		case 3:
+			return 'rd';
+		default:
+			return 'th';
+	}
+};
+
+export const getDays = (month, year) => {
+	var date = new Date(year, month, 1);
+	var days = [];
+	while (date.getMonth() === month) {
+		days.push(`${monthNames[month]} ${new Date(date).getDate()}${nth(new Date(date).getDate())}`);
+		date.setDate(date.getDate() + 1);
+	}
+	return days;
+};
+
 export const sortOnLoad = (sortby, posts) => {
 	switch (sortby) {
 		case 'Newest':
