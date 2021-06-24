@@ -1,0 +1,70 @@
+.office-cont {
+  width: 100%;
+  padding: 60px;
+}
+
+.officeheader {
+  font-size: 50px;
+  font-weight: 300;
+}
+
+.oTabs-cont {
+  display: flex;
+  justify-content: space-between;
+  width: 45%;
+  margin-top: 20px;
+}
+
+.linethru {
+  border-bottom: 2px solid rgba(3, 3, 3, 0.123);
+  width: 60%;
+  transform: translateY(-2px);
+  margin-bottom: 25px;
+}
+
+.oTabs {
+  height: 25px;
+  width: 15%;
+}
+
+.oTab-active {
+  border-bottom: 2px solid blue;
+  height: 25px;
+  width: 15%;
+}
+
+.ott {
+  text-align: center;
+}
+
+.card-cont {
+  height: 100%;
+  width: 100%;
+  gap: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: flex-start;
+  justify-content: flex-start;
+}
+
+.contractcard {
+  width: 290px;
+  background-color: white;
+  height: 290px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 10px;
+  padding: 25px;
+}
+
+.task-box {
+  border: 1px solid black;
+  width: 60%;
+}
+
+.card-img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 100%;
+}
