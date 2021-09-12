@@ -53,7 +53,7 @@ export const Settings = (props) => {
     const fd = new FormData();
     fd.append("imageFile", file.raw);
     axiosWithAuth()
-      .patch(`http://localhost:2019/customer/upload/2`, fd)
+      .patch(`http://localhost:2019/customer/upload/9`, fd)
       .then((res) => {
         console.log(res.data);
       });

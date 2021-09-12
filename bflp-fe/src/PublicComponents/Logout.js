@@ -11,7 +11,10 @@ export const Logout = () => {
       .then((res) => {
         // either refresh page or redirext back to the login
       })
-      .catch((err) => console.log(err.res));
+      .catch((err) => console.log(err.res))
+      .then(() => {
+        window.location.replace(`/login`);
+      });
   };
 
   return (

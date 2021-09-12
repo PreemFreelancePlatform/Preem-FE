@@ -1,16 +1,15 @@
-// Web Dev {
-//     Back-End Dev
-//     Database Dev
-//     Ecommerce Dev
-//     Front-End Dev
-//     Full Stack Dev
-//     Web Design
-//     UX/UI
-//     Testing
-//     AR Dev
-//     VR Dev
-//     CMS Dev (wordpress)
-//     }
+export const colorCodeWeb = {
+"Web-design": "#39CCCC",
+"Front-end": "#0074D9",
+"Back-end": "#FFDC00",
+"Full-stack": "#01FF70",
+"UX/UI": "#FF851B",
+"Testing": "#FF4136",
+"AR": "#B10DC9",
+"VR": "#F012BE ",
+"Wordpress": "#3D9970",
+};
+
 
 //     Mobile Dev {
 //     IOS App Dev
@@ -64,22 +63,3 @@
 //     information security
 //     network security
 //     }
-
-export const colorcode = {
-	'back-end': 'red',
-	'front-end': 'blue',
-	// backend: '#dd966b',
-	// backend: '#f1f3cc',
-	// backend: '#660066 ',
-	// backend: '#c39797 ',
-	// backend: '#e6f2d3',
-	// backend: '#022302 ',
-	// backend: '#062902 ',
-	// backend: '#a69eb0 ',
-	// backend: '#a69eb0 ',
-	// backend: '#000000',
-	// backend: '#00bfe7',
-	// backend: '#63b8ff',
-	// backend: '#3ca9d0',
-	// backend: '#d6b6e6',
-};

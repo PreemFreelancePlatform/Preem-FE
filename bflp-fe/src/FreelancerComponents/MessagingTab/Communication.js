@@ -1,43 +1,56 @@
-import React from "react";
-import { Client } from "@stomp/stompjs";
+import React, { useEffect, useRef } from "react";
+import SockJsClient from "react-stomp";
+import { useForm } from "react-hook-form";
 import "../../styles/Shared-Styles/Comms.css";
 import { useState } from "react";
-import { useEffect } from "react";
+import client from "react-stomp";
 
 export const Communication = () => {
-  const SOCKET_URL = "ws://localhost:2019/ws-message";
-
+  const { register, handleSubmit } = useForm();
   const [messages, setMessages] = useState();
+  let clientRef = useRef(null);
+
+  const onSubmit = (data) => {
+    const daref = clientRef.current;
+    daref.sendMessage("/app/hello", data.email);
+  };
 
   let onConnected = () => {
     console.log("Connected!!");
-    client.subscribe("/hello", function (msg) {
-      console.log(msg);
-    });
   };
 
-  let onDisconnected = () => {
-    console.log("Disconnected!!");
+  let onMessageReceived = (msg) => {
+    console.log(msg);
   };
 
-  const client = new Client({
-    brokerURL: SOCKET_URL,
-    reconnectDelay: 5000,
-    heartbeatIncoming: 4000,
-    heartbeatOutgoing: 4000,
-    onConnect: onConnected,
-    onDisconnect: onDisconnected,
-  });
-
-  useEffect(() => {
-    client.activate();
-  }, []);
+  const ok = {
+    asf: "fafa",
+  };
 
   return (
-    <div className="comms-cont">
-      <h1 className="comms-header">Messaging</h1>
+    <div>
+      <SockJsClient
+        url="http://localhost:2019/socket"
+        topics={["/topic/messages"]}
+        onConnect={onConnected}
+        onDisconnect={console.log("Disconnected!")}
+        onMessage={(msg) => onMessageReceived(msg)}
+        debug={true}
+        ref={clientRef}
+        subscribeHeaders={ok}
+      />
 
-      <div>{messages}</div>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <input
+          className="loginforminput"
+          type="text"
+          name="email"
+          id="email"
+          ref={register({ required: true })}
+        ></input>
+      </form>
+
+      <div>{messages ? messages : "none"}</div>
     </div>
   );
 };

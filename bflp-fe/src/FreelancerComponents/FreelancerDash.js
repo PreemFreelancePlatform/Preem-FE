@@ -18,9 +18,9 @@ import lilguy from "../aLOGOPREEM/LOGOpngFiles/lilguy.png";
 import openmenu from "../assets/menu-24px.svg";
 import closemenu from "../assets/menu_open-24px.svg";
 
+import { Communication } from "./MessagingTab/Communication";
 import { Settings } from "./SettingsTab/Settings";
 import { Home } from "./HomeTab/Home";
-import { Communication } from "./MessagingTab/Communication";
 import { Setup } from "../PublicComponents/Setup";
 import { Apply } from "./ApplyTab/Apply";
 import { Office } from "./OfficeTab/Office";
@@ -30,7 +30,7 @@ export const FreelancerDash = (props) => {
   const email = useParams();
   const text = ["Dashboard", "Jobs", "Messaging", "Settings", "Tags"];
   const [hamburgerMenu, setHamburgerMenu] = useState(false);
-  const [activeTab, setActiveTab] = useState(2);
+  const [activeTab, setActiveTab] = useState(1);
 
   // find better way to do this
   const tabs = {

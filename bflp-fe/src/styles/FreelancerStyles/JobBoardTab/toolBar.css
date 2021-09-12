@@ -1,8 +1,5 @@
-.job-header {
-  width: 96%;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
+.tools-cont {
+  padding: 20px;
 }
 
 .job-header h1 {

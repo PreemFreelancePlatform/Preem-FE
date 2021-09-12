@@ -25,7 +25,7 @@ export const Login = () => {
         )}
         <div className="box-header">
           <img className="preemlogo" src={logo} />
-          <p>Welcome back! Please log in to your account</p>
+          <p>Welcome back! Please log in to your account Type</p>
         </div>
         <form onSubmit={handleSubmit(onSubmit)} className="forms-login">
           <span className="placeholder">Email Address</span>

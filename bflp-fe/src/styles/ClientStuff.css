@@ -1,0 +1,108 @@
+/* ---------------------- TABHEADER ---------------------- */
+
+.tabHeader {
+  height: 13%;
+  justify-content: space-between;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.075) 0px 25px 20px -20px;
+}
+
+.h12 {
+  font-size: 70px;
+  font-family: "EB Garamond", serif;
+  font-weight: 500;
+  padding-left: 50px;
+}
+
+.header-greet {
+  padding-left: 50px;
+  font-size: 1.6rem;
+  color: rgba(0, 0, 0, 0.521);
+}
+
+/* ---------------------- CLIENTHOME ---------------------- */
+
+.client-home {
+  display: flex;
+  flex-direction: column;
+  animation: fadein ease 400ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(234, 234, 234);
+}
+
+.greet-div {
+  height: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 50px;
+}
+
+.greet-div h1 {
+  font-size: 2rem;
+}
+
+.greet-subtext {
+  display: inline-block;
+}
+
+.clientHome-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 1px solid green;
+  padding: 20px 50px 0px;
+  height: 100%;
+}
+
+.big-boxes {
+  display: flex;
+  border: 1px solid black;
+  gap: 20px;
+  height: 30%;
+  width: 75%;
+}
+
+.bigbox {
+  background-color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  display: flex;
+  align-items: flex-end;
+  width: 20%;
+  height: 100%;
+  width: 100%;
+}
+
+.bb-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 90%;
+  width: 100%;
+}
+
+.inner-text {
+  display: flex;
+  align-items: center;
+}
+
+.bigbox img {
+  height: 40%;
+}
+
+.analytic-box {
+  border: 1px solid black;
+  display: flex;
+  border: 1px solid black;
+  gap: 20px;
+  height: 35%;
+  width: 75%;
+}
